@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hub | NewSight Technologies</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <script>tailwind.config = { theme: { extend: { fontFamily: { sans: ['Plus Jakarta Sans', 'sans-serif'] } } } };</script>
+    <style>
+        body {
+            background: #0B0F19;
+            color: #F3F4F6;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow-x: hidden
+        }
+
+        .glass-panel {
+            background: rgba(21, 28, 44, .7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, .08)
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, .03);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, .08);
+            transition: all .3s ease
+        }
+
+        .glass-card:hover {
+            border-color: rgba(16, 185, 129, .45);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px -10px rgba(16, 185, 129, .18)
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, #34d399, #10b981 50%, #06b6d4);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent
+        }
+
+        .hub-slide {
+            opacity: 0;
+            visibility: hidden;
+            transform: scale(1.04);
+            transition: opacity .6s ease, transform .8s ease, visibility .6s ease;
+        }
+
+        .hub-slide.is-active {
+            opacity: 1;
+            visibility: visible;
+            transform: scale(1);
+        }
+
+        @media(prefers-reduced-motion: reduce) {
+            .hub-slide {
+                transition: none;
+            }
+        }
+
+        @media(prefers-reduced-motion:reduce) {
+
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                transition-duration: .01ms !important
+            }
+        }
+    </style>
+</head>
+
+<body class="antialiased selection:bg-emerald-500 selection:text-white">
+    <header class="fixed top-0 left-0 right-0 w-full z-50">
+        <div class="w-full">
+            <div
+                class="glass-panel rounded-none border-x-0 border-t-0 bg-slate-950/85 px-6 py-3.5 flex items-center justify-between">
+                <a href="index.html" class="flex items-center gap-3 group">
+                    <div
+                        class="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-500 to-indigo-600 flex items-center justify-center font-bold text-white text-xl shadow-lg">
+                        <img src="/Assets/icons/L@ c.svg" alt="Description of the image" size='24' class="w-6 h-6" />
+                    </div>
+                    <div class="flex flex-col"><span class="font-extrabold text-xl tracking-wider text-white">NewSight
+                            <span class="text-cyan-400"></span></span><span
+                            class="text-[9px] uppercase tracking-widest text-slate-400 font-semibold -mt-1">Technologies</span>
+                    </div>
+                </a>
+                <nav class="hidden lg:flex items-center gap-7 text-sm font-medium text-slate-300"><a href="index.html"
+                        class="hover:text-cyan-400">Home</a><a href="about.html" class="hover:text-cyan-400">About
+                        Us</a><a href="hub.html" class="text-emerald-400">Hub</a><a href="index.html#services"
+                        class="hover:text-cyan-400">Services</a><a href="index.html#portfolio"
+                        class="hover:text-cyan-400">Work & Impact</a><a href="index.html#testimonials"
+                        class="hover:text-cyan-400">Alumni & Clients</a><a href="index.html#faq"
+                        class="hover:text-cyan-400">FAQ</a></nav><a href="contact.html"
+                    class="hidden sm:inline-flex px-5 py-2.5 text-sm font-semibold text-white bg-gradient-to-r from-cyan-500 to-indigo-600 rounded-xl">Get
+                    Started</a><button id="mobile-menu-btn" class="lg:hidden text-slate-300 p-2"><i data-lucide="menu"
+                        class="w-6 h-6"></i></button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden lg:hidden max-w-7xl mx-auto px-4 mt-2">
+            <div class="glass-panel rounded-2xl p-6 flex flex-col gap-4 text-slate-200"><a href="index.html"
+                    class="mobile-link py-2 border-b border-slate-800">Home</a><a href="about.html"
+                    class="mobile-link py-2 border-b border-slate-800">About Us</a><a href="hub.html"
+                    class="mobile-link py-2 border-b border-slate-800">Hub</a><a href="index.html#services"
+                    class="mobile-link py-2 border-b border-slate-800">Services</a><a href="index.html#portfolio"
+                    class="mobile-link py-2 border-b border-slate-800">Work & Impact</a><a
+                    href="index.html#testimonials" class="mobile-link py-2 border-b border-slate-800">Alumni &
+                    Clients</a><a href="index.html#faq" class="mobile-link py-2 border-b border-slate-800">FAQ</a></div>
+        </div>
+    </header>
+    <main class="pt-36">
+        <section class="relative py-20 md:py-28 overflow-hidden">
+            <div
+                class="absolute top-0 left-1/4 w-[32rem] h-[32rem] bg-emerald-500/10 rounded-full blur-[140px] pointer-events-none">
+            </div>
+            <div
+                class="absolute bottom-0 right-0 w-80 h-80 bg-cyan-500/10 rounded-full blur-[120px] pointer-events-none">
+            </div>
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+                <div class="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+                    <div class="lg:col-span-7">
+                        <div
+                            class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-card border-emerald-500/30 text-emerald-300 text-xs sm:text-sm font-medium">
+                            <span class="flex h-2 w-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                            <span>Applications open for the next cohort</span>
+                        </div>
+                        <h1
+                            class="mt-6 max-w-4xl text-4xl sm:text-6xl xl:text-7xl font-extrabold tracking-tight leading-[1.05]">
+                            Build skills that create <span class="text-gradient">real momentum.</span>
+                        </h1>
+                        <p class="mt-6 max-w-2xl text-lg sm:text-xl text-slate-400 leading-relaxed">
+                            The NewSight Technologies Hub turns ambitious learners into confident builders through
+                            mentor-led tracks, real projects, and career-ready practice.
+                        </p>
+                        <div class="mt-8 flex flex-col sm:flex-row gap-4">
+                            <a href="#tracks"
+                                class="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl bg-gradient-to-r from-emerald-500 to-cyan-500 text-slate-950 font-bold hover:shadow-lg hover:shadow-emerald-500/20 transition-all hover:-translate-y-0.5">
+                                Explore Hub Tracks <i data-lucide="arrow-down" class="w-4 h-4"></i>
+                            </a>
+                            <a href="contact.html"
+                                class="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl glass-card text-white font-semibold hover:border-emerald-400/50 transition-all">
+                                Start an Application <i data-lucide="arrow-up-right"
+                                    class="w-4 h-4 text-emerald-400"></i>
+                            </a>
+                        </div>
+                        <div class="mt-8 flex flex-wrap gap-x-7 gap-y-3 text-sm text-slate-400">
+                            <span class="inline-flex items-center gap-2"><i data-lucide="check-circle-2"
+                                    class="w-4 h-4 text-emerald-400"></i>Project-based learning</span>
+                            <span class="inline-flex items-center gap-2"><i data-lucide="check-circle-2"
+                                    class="w-4 h-4 text-emerald-400"></i>Industry mentors</span>
+                            <span class="inline-flex items-center gap-2"><i data-lucide="check-circle-2"
+                                    class="w-4 h-4 text-emerald-400"></i>Career support</span>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-5">
+                        <div
+                            class="glass-panel p-6 sm:p-8 rounded-3xl border border-emerald-500/25 relative overflow-hidden">
+                            <div
+                                class="absolute -top-20 -right-16 w-48 h-48 bg-emerald-400/10 rounded-full blur-3xl pointer-events-none">
+                            </div>
+                            <div class="relative">
+                                <div id="hub-carousel" class="relative h-52 overflow-hidden rounded-2xl mb-6"
+                                    aria-roledescription="carousel" aria-label="NewSight Hub experience">
+                                    <div class="hub-slide is-active absolute inset-0" data-slide="0">
+                                        <img src="/Assets/images/Mark.jpg"
+                                            alt="Students collaborating on a technology project"
+                                            class="w-full h-full object-cover">
+                                        <div
+                                            class="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-slate-950/90 to-transparent">
+                                            <span class="text-xs font-semibold text-white">Collaborative learning</span>
+                                        </div>
+                                    </div>
+                                    <div class="hub-slide absolute inset-0" data-slide="1">
+                                        <img src="/Assets/images/pro.jpg"
+                                            alt="Learner working on a laptop during a focused session"
+                                            class="w-full h-full object-cover">
+                                        <div
+                                            class="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-slate-950/90 to-transparent">
+                                            <span class="text-xs font-semibold text-white">Focused practice</span>
+                                        </div>
+                                    </div>
+                                    <div class="hub-slide absolute inset-0" data-slide="2">
+                                        <img src="/Assets/images/inm.jpg"
+                                            alt="Mentors and learners reviewing a project together"
+                                            class="w-full h-full object-cover">
+                                        <div
+                                            class="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-slate-950/90 to-transparent">
+                                            <span class="text-xs font-semibold text-white">Mentor feedback</span>
+                                        </div>
+                                    </div>
+                                    <button type="button" id="hub-carousel-prev" aria-label="Previous Hub image"
+                                        class="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-slate-950/70 text-white flex items-center justify-center hover:bg-emerald-500 transition-colors"><i
+                                            data-lucide="chevron-left" class="w-5 h-5"></i></button>
+                                    <button type="button" id="hub-carousel-next" aria-label="Next Hub image"
+                                        class="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-slate-950/70 text-white flex items-center justify-center hover:bg-emerald-500 transition-colors"><i
+                                            data-lucide="chevron-right" class="w-5 h-5"></i></button>
+                                    <div class="absolute bottom-3 right-4 flex gap-1.5" role="tablist"
+                                        aria-label="Hub carousel slides">
+                                        <button type="button"
+                                            class="hub-dot w-2 h-2 rounded-full bg-white transition-all"
+                                            data-slide-target="0"
+                                            aria-label="Show collaborative learning image"></button>
+                                        <button type="button"
+                                            class="hub-dot w-2 h-2 rounded-full bg-white/40 transition-all"
+                                            data-slide-target="1" aria-label="Show focused practice image"></button>
+                                        <button type="button"
+                                            class="hub-dot w-2 h-2 rounded-full bg-white/40 transition-all"
+                                            data-slide-target="2" aria-label="Show mentor feedback image"></button>
+                                    </div>
+                                </div>
+                                <div class="flex items-center justify-between mb-8">
+                                    <div>
+                                        <span class="text-xs uppercase tracking-widest text-slate-500">Hub at a
+                                            glance</span>
+                                        <h2 class="mt-2 text-2xl font-bold text-white">Learn. Build. Launch.</h2>
+                                    </div>
+                                    <i data-lucide="compass" class="w-8 h-8 text-emerald-400"></i>
+                                </div>
+                                <div class="grid grid-cols-2 gap-3">
+                                    <div class="glass-card p-4 rounded-2xl"><span
+                                            class="block text-2xl font-extrabold text-emerald-400">4</span><span
+                                            class="text-xs text-slate-400">Focused tracks</span></div>
+                                    <div class="glass-card p-4 rounded-2xl"><span
+                                            class="block text-2xl font-extrabold text-cyan-400">25</span><span
+                                            class="text-xs text-slate-400">Seats per track</span></div>
+                                    <div class="glass-card p-4 rounded-2xl"><span
+                                            class="block text-2xl font-extrabold text-indigo-400">1:1</span><span
+                                            class="text-xs text-slate-400">Mentor feedback</span></div>
+                                    <div class="glass-card p-4 rounded-2xl"><span
+                                            class="block text-2xl font-extrabold text-white">Oct 15</span><span
+                                            class="text-xs text-slate-400">Next cohort</span></div>
+                                </div>
+                                <div
+                                    class="mt-6 pt-5 border-t border-slate-800 flex items-center gap-3 text-sm text-slate-300">
+                                    <div
+                                        class="w-9 h-9 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center">
+                                        <i data-lucide="layers-3" class="w-5 h-5"></i>
+                                    </div>
+                                    <span>Build a portfolio that shows how you think and what you can deliver.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="tracks" class="py-20 border-t border-slate-800/80">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-end justify-between gap-6 mb-10">
+                    <div><span class="text-emerald-400 font-semibold text-sm uppercase tracking-widest">Choose Your
+                            Track</span>
+                        <h2 class="mt-3 text-3xl sm:text-4xl font-bold text-white">Four paths into the future of work.
+                        </h2>
+                    </div><span class="hidden sm:block text-sm text-slate-500">25 seats per track</span>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <article class="glass-card p-6 rounded-3xl"><span
+                            class="text-emerald-400 text-xs font-bold tracking-widest">16 WEEKS</span>
+                        <h3 class="mt-4 text-xl font-bold text-white">Full-Stack Software Engineering</h3>
+                        <p class="mt-3 text-sm leading-relaxed text-slate-400">React, Node.js, TypeScript, PostgreSQL,
+                            AWS, APIs, and production architecture.</p>
+                        <div class="mt-6 flex items-center gap-2 text-xs text-slate-300"><i data-lucide="code"
+                                class="w-4 h-4 text-emerald-400"></i>12 project builds</div>
+                    </article>
+                    <article class="glass-card p-6 rounded-3xl"><span
+                            class="text-cyan-400 text-xs font-bold tracking-widest">12 WEEKS</span>
+                        <h3 class="mt-4 text-xl font-bold text-white">UI/UX & Digital Product Design</h3>
+                        <p class="mt-3 text-sm leading-relaxed text-slate-400">Figma, research, design systems,
+                            prototyping, usability, and developer handoff.</p>
+                        <div class="mt-6 flex items-center gap-2 text-xs text-slate-300"><i data-lucide="figma"
+                                class="w-4 h-4 text-cyan-400"></i>Portfolio case studies</div>
+                    </article>
+                    <article class="glass-card p-6 rounded-3xl"><span
+                            class="text-indigo-400 text-xs font-bold tracking-widest">14 WEEKS</span>
+                        <h3 class="mt-4 text-xl font-bold text-white">AI Systems & Data Engineering</h3>
+                        <p class="mt-3 text-sm leading-relaxed text-slate-400">Python, PyTorch, LLM fine-tuning, data
+                            pipelines, vector databases, and applied AI.</p>
+                        <div class="mt-6 flex items-center gap-2 text-xs text-slate-300"><i data-lucide="database"
+                                class="w-4 h-4 text-indigo-400"></i>Real data pipelines</div>
+                    </article>
+                    <article class="glass-card p-6 rounded-3xl"><span
+                            class="text-purple-400 text-xs font-bold tracking-widest">10 WEEKS</span>
+                        <h3 class="mt-4 text-xl font-bold text-white">Growth & Digital Marketing</h3>
+                        <p class="mt-3 text-sm leading-relaxed text-slate-400">Performance marketing, SEO, funnels,
+                            analytics, experimentation, and growth strategy.</p>
+                        <div class="mt-6 flex items-center gap-2 text-xs text-slate-300"><i data-lucide="trending-up"
+                                class="w-4 h-4 text-purple-400"></i>Live campaign work</div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20 bg-slate-950/40 border-t border-slate-800/80">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="max-w-3xl mb-10">
+                    <span class="text-cyan-400 font-semibold text-sm uppercase tracking-widest">How the Hub Works</span>
+                    <h2 class="mt-3 text-3xl sm:text-4xl font-bold text-white">A structured path from practice to
+                        professional confidence.</h2>
+                    <p class="mt-4 text-slate-400 leading-relaxed">Every track combines focused instruction with real
+                        delivery habits, so learners finish with evidence of what they can do rather than only a list of
+                        topics.</p>
+                </div>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <article class="glass-card p-7 rounded-3xl">
+                        <div
+                            class="w-12 h-12 rounded-2xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center mb-6">
+                            <i data-lucide="calendar-days" class="w-6 h-6"></i>
+                        </div>
+                        <span class="text-xs font-bold uppercase tracking-widest text-slate-500">01 · Learn</span>
+                        <h3 class="mt-3 text-xl font-bold text-white">Live guided sessions</h3>
+                        <p class="mt-3 text-sm leading-relaxed text-slate-400">Work through the foundations with
+                            mentors, weekly checkpoints, technical reviews, and a clear progression from core concepts
+                            to advanced practice.</p>
+                    </article>
+                    <article class="glass-card p-7 rounded-3xl">
+                        <div
+                            class="w-12 h-12 rounded-2xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center mb-6">
+                            <i data-lucide="hammer" class="w-6 h-6"></i>
+                        </div>
+                        <span class="text-xs font-bold uppercase tracking-widest text-slate-500">02 · Build</span>
+                        <h3 class="mt-3 text-xl font-bold text-white">Portfolio-grade projects</h3>
+                        <p class="mt-3 text-sm leading-relaxed text-slate-400">Turn each module into working output
+                            through individual builds, team delivery, documentation, testing, and presentations that
+                            mirror professional work.</p>
+                    </article>
+                    <article class="glass-card p-7 rounded-3xl">
+                        <div
+                            class="w-12 h-12 rounded-2xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center mb-6">
+                            <i data-lucide="briefcase-business" class="w-6 h-6"></i>
+                        </div>
+                        <span class="text-xs font-bold uppercase tracking-widest text-slate-500">03 · Launch</span>
+                        <h3 class="mt-3 text-xl font-bold text-white">Career readiness</h3>
+                        <p class="mt-3 text-sm leading-relaxed text-slate-400">Refine your portfolio, practice technical
+                            and creative interviews, strengthen your professional profile, and connect with the hiring
+                            network.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20 border-t border-slate-800/80">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12 items-start">
+                <div>
+                    <span class="text-emerald-400 font-semibold text-sm uppercase tracking-widest">What You
+                        Receive</span>
+                    <h2 class="mt-3 text-3xl sm:text-4xl font-bold text-white">Support that continues beyond the
+                        classroom.</h2>
+                    <p class="mt-4 text-slate-400 leading-relaxed">The Hub is designed to help you stay accountable,
+                        make better work, and understand how your skills connect to real opportunities.</p>
+                </div>
+                <div class="grid sm:grid-cols-2 gap-4">
+                    <div class="flex gap-3 glass-card p-5 rounded-2xl"><i data-lucide="user-round-check"
+                            class="w-5 h-5 text-emerald-400 shrink-0"></i><span class="text-sm text-slate-300">Industry
+                            mentor feedback</span></div>
+                    <div class="flex gap-3 glass-card p-5 rounded-2xl"><i data-lucide="folder-kanban"
+                            class="w-5 h-5 text-cyan-400 shrink-0"></i><span class="text-sm text-slate-300">Project and
+                            portfolio reviews</span></div>
+                    <div class="flex gap-3 glass-card p-5 rounded-2xl"><i data-lucide="users-round"
+                            class="w-5 h-5 text-indigo-400 shrink-0"></i><span class="text-sm text-slate-300">Peer
+                            collaboration circles</span></div>
+                    <div class="flex gap-3 glass-card p-5 rounded-2xl"><i data-lucide="network"
+                            class="w-5 h-5 text-purple-400 shrink-0"></i><span class="text-sm text-slate-300">Hiring
+                            network access</span></div>
+                    <div class="flex gap-3 glass-card p-5 rounded-2xl"><i data-lucide="message-circle"
+                            class="w-5 h-5 text-cyan-400 shrink-0"></i><span class="text-sm text-slate-300">Office hours
+                            and support</span></div>
+                    <div class="flex gap-3 glass-card p-5 rounded-2xl"><i data-lucide="award"
+                            class="w-5 h-5 text-emerald-400 shrink-0"></i><span
+                            class="text-sm text-slate-300">Completion recognition</span></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20 bg-slate-950/40 border-t border-slate-800/80">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <span class="text-cyan-400 font-semibold text-sm uppercase tracking-widest">Next Step</span>
+                <h2 class="mt-3 text-3xl sm:text-4xl font-bold text-white">Ready to find your place in the Hub?</h2>
+                <p class="mt-4 text-slate-400 leading-relaxed">Tell us about your goals and preferred track. Our team
+                    will help you understand the next cohort and application process.</p>
+                <a href="contact.html"
+                    class="mt-8 inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-gradient-to-r from-emerald-500 to-cyan-500 text-slate-950 font-bold">Start
+                    your application <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+            </div>
+        </section>
+    </main>
+    <footer class="border-t border-slate-800 bg-slate-950 pt-16 pb-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 pb-14 border-b border-slate-800">
+                <div class="sm:col-span-2 lg:col-span-1"><a href="index.html"
+                        class="inline-flex items-center gap-3 mb-5">
+                        <div
+                            class="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-500 to-indigo-600 flex items-center justify-center font-bold text-white text-xl shadow-lg">
+                            <img src="/Assets/icons/L@ c.svg" alt="Description of the image" size='24'
+                                class="w-6 h-6" />
+                        </div>
+                        <div class="flex flex-col"><span
+                                class="font-extrabold text-xl tracking-wider text-white">NewSight
+                                <span class="text-cyan-400"></span></span><span
+                                class="text-[9px] uppercase tracking-widest text-slate-400 font-semibold -mt-1">Technologies</span>
+                        </div>
+                    </a>
+                    <p class="text-sm leading-relaxed text-slate-400 max-w-xs">Digital transformation, applied AI, and
+                        practical technology training for ambitious organizations and future-ready talent.</p>
+                </div>
+                <div>
+                    <h3 class="text-xs font-bold uppercase tracking-widest text-white mb-5">Explore</h3>
+                    <div class="space-y-3 text-sm text-slate-400"><a href="index.html"
+                            class="block hover:text-cyan-400">Home</a><a href="about.html"
+                            class="block hover:text-cyan-400">About Us</a><a href="hub.html"
+                            class="block hover:text-cyan-400">Hub</a><a href="contact.html"
+                            class="block hover:text-cyan-400">Contact</a></div>
+                </div>
+                <div>
+                    <h3 class="text-xs font-bold uppercase tracking-widest text-white mb-5">Hub</h3>
+                    <div class="space-y-3 text-sm text-slate-400"><a href="#tracks"
+                            class="block hover:text-emerald-400">Bootcamp Tracks</a><a href="contact.html"
+                            class="block hover:text-emerald-400">Apply for Enrollment</a>
+                        <p class="pt-2 text-xs text-slate-500">Next cohort: October 15<br>25 seats per track</p>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-xs font-bold uppercase tracking-widest text-white mb-5">Contact</h3>
+                    <div class="space-y-3 text-sm text-slate-400"><a href="mailto:infos@newsight.com"
+                            class="block hover:text-cyan-400">infos@newsight.com</a><!--<a
+                            href="mailto:admissions@newsight.io"
+                            class="block hover:text-cyan-400">admissions@newsight.io</a>-->
+                        <p>+243 975041411</p>
+                    </div>
+                </div>
+            </div>
+            <div class="pt-12 pb-10 text-center overflow-hidden">
+                <div
+                    class="text-[clamp(4rem,16vw,13rem)] leading-none font-black tracking-[-0.06em] text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-white to-indigo-500 select-none">
+                    NewSight Technologies<span class="text-cyan-400"></span></div>
+            </div>
+            <div
+                class="flex flex-col sm:flex-row justify-between items-center gap-3 border-t border-slate-800 pt-5 text-xs text-slate-500">
+                <span>© 2026 NewSight Technologies. All rights reserved.</span><span>Built for progress. Designed for
+                    people.</span>
+            </div>
+        </div>
+    </footer>
+    <script>
+        lucide.createIcons();
+        const menuButton = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+        document.querySelectorAll('.mobile-link').forEach(link => link.addEventListener('click', () => mobileMenu.classList.add('hidden')));
+
+        const carousel = document.getElementById('hub-carousel');
+        const slides = carousel.querySelectorAll('.hub-slide');
+        const dots = carousel.querySelectorAll('.hub-dot');
+        let activeSlide = 0;
+        let autoplayTimer;
+
+        function showSlide(index) {
+            activeSlide = (index + slides.length) % slides.length;
+            slides.forEach((slide, slideIndex) => slide.classList.toggle('is-active', slideIndex === activeSlide));
+            dots.forEach((dot, dotIndex) => {
+                dot.classList.toggle('bg-white', dotIndex === activeSlide);
+                dot.classList.toggle('bg-white/40', dotIndex !== activeSlide);
+            });
+        }
+
+        function startAutoplay() {
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                autoplayTimer = setInterval(() => showSlide(activeSlide + 1), 5000);
+            }
+        }
+
+        function resetAutoplay() {
+            clearInterval(autoplayTimer);
+            startAutoplay();
+        }
+
+        document.getElementById('hub-carousel-prev').addEventListener('click', () => {
+            showSlide(activeSlide - 1);
+            resetAutoplay();
+        });
+        document.getElementById('hub-carousel-next').addEventListener('click', () => {
+            showSlide(activeSlide + 1);
+            resetAutoplay();
+        });
+        dots.forEach(dot => dot.addEventListener('click', () => {
+            showSlide(Number(dot.dataset.slideTarget));
+            resetAutoplay();
+        }));
+        carousel.addEventListener('mouseenter', () => clearInterval(autoplayTimer));
+        carousel.addEventListener('mouseleave', startAutoplay);
+        startAutoplay();
+    </script>
+</body>
+
+</html>

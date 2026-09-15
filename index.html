@@ -1,0 +1,1533 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NewSight Technologies | Digital Transformation & Tech Hub</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#0B0F19',
+                            card: '#151C2C',
+                            border: '#2A3447',
+                            cyan: '#06b6d4',
+                            indigo: '#6366f1',
+                            emerald: '#10b981',
+                            purple: '#a855f7'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-12px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #0B0F19;
+            color: #F3F4F6;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Custom Glassmorphism Styling */
+        .glass-panel {
+            background: rgba(21, 28, 44, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .glass-card:hover {
+            border-color: rgba(6, 182, 212, 0.4);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px -10px rgba(6, 182, 212, 0.2);
+        }
+
+        /* Gradient Text */
+        .text-gradient-cyan {
+            background: linear-gradient(135deg, #38bdf8 0%, #06b6d4 50%, #6366f1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .text-gradient-emerald {
+            background: linear-gradient(135deg, #34d399 0%, #10b981 50%, #06b6d4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Glowing Effects */
+        .glow-cyan {
+            box-shadow: 0 0 25px rgba(6, 182, 212, 0.3);
+        }
+
+        .glow-indigo {
+            box-shadow: 0 0 25px rgba(99, 102, 241, 0.3);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #0B0F19;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #1f293d;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #06b6d4;
+        }
+
+        @keyframes reveal-up {
+            from {
+                opacity: 0;
+                transform: translateY(28px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes reveal-side {
+            from {
+                opacity: 0;
+                transform: translateX(-24px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .reveal.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .hero-reveal {
+            animation: reveal-side 0.9s ease-out both;
+        }
+
+        .hero-reveal-delay {
+            animation: reveal-up 0.9s 0.18s ease-out both;
+        }
+
+        .stagger-item:nth-child(2) {
+            transition-delay: 0.1s;
+        }
+
+        .stagger-item:nth-child(3) {
+            transition-delay: 0.2s;
+        }
+
+        .stagger-item:nth-child(4) {
+            transition-delay: 0.3s;
+        }
+
+        @keyframes logo-marquee {
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(-50%);
+            }
+        }
+
+        .logo-marquee-viewport {
+            overflow: hidden;
+            mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+            -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+        }
+
+        .logo-marquee-track {
+            display: flex;
+            width: max-content;
+            animation: logo-marquee 24s linear infinite;
+        }
+
+        .logo-marquee-viewport:hover .logo-marquee-track,
+        .logo-marquee-viewport:focus-within .logo-marquee-track {
+            animation-play-state: paused;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                scroll-behavior: auto !important;
+                transition-duration: 0.01ms !important;
+            }
+
+            .reveal {
+                opacity: 1;
+                transform: none;
+            }
+
+            .logo-marquee-track {
+                animation: none;
+                width: 100%;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+
+<body class="antialiased selection:bg-cyan-500 selection:text-white">
+
+    <!-- Navigation Bar -->
+    <header class="fixed top-0 left-0 right-0 w-full z-50 transition-all duration-300" id="main-header">
+        <div class="w-full">
+            <div
+                class="glass-panel rounded-none border-x-0 border-t-0 bg-slate-950/85 px-6 py-3.5 flex items-center justify-between">
+                <!-- Logo -->
+                <a href="index.html" class="flex items-center gap-3 group">
+                    <div
+                        class="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-500 to-indigo-600 flex items-center justify-center font-bold text-white text-xl shadow-lg group-hover:scale-105 transition-transform">
+                        <img src="/Assets/icons/L@ c.svg" alt="Description of the image" size='24' class="w-6 h-6" />
+
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="font-extrabold text-xl tracking-wider text-white">NewSight<span
+                                class="text-cyan-400"></span></span>
+                        <span
+                            class="text-[9px] uppercase tracking-widest text-slate-400 font-semibold -mt-1">Technologies</span>
+                    </div>
+                </a> <br>
+
+                <!-- Desktop Nav Navigation Links -->
+                <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-slate-300">
+                    <a href="index.html" class="text-cyan-400 transition-colors">Home</a>
+                    <a href="about.html" class="hover:text-cyan-400 transition-colors">About Us</a>
+                    <a href="hub.html" class="hover:text-cyan-400 transition-colors flex items-center gap-1.5">
+                        <span>Hub</span>
+                        <span
+                            class="bg-emerald-500/20 text-emerald-400 text-[10px] px-2 py-0.5 rounded-full border border-emerald-500/30 font-bold">HIRING</span>
+                    </a>
+                    <a href="index.html#services" class="hover:text-cyan-400 transition-colors">Services</a>
+                    <a href="index.html#portfolio" class="hover:text-cyan-400 transition-colors">Work & Impact</a>
+                    <a href="index.html#testimonials" class="hover:text-cyan-400 transition-colors">Alumni & Clients</a>
+                    <a href="index.html#faq" class="hover:text-cyan-400 transition-colors">FAQ</a>
+                </nav>
+
+                <!-- CTA Actions -->
+                <div class="hidden sm:flex items-center gap-4">
+                    <a href="contact.html"
+                        class="relative inline-flex items-center justify-center px-5 py-2.5 text-sm font-semibold text-white transition-all bg-gradient-to-r from-cyan-500 to-indigo-600 rounded-xl hover:shadow-lg hover:shadow-cyan-500/25 hover:scale-[1.02] active:scale-95">
+                        Get Started
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="lg:hidden text-slate-300 hover:text-white p-2">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Drawer -->
+        <div id="mobile-menu" class="hidden lg:hidden max-w-7xl mx-auto px-4 mt-2">
+            <div class="glass-panel rounded-2xl p-6 flex flex-col gap-4 text-slate-200">
+                <a href="index.html" class="mobile-link py-2 border-b border-slate-800">Home</a>
+                <a href="about.html" class="mobile-link py-2 border-b border-slate-800">About Us</a>
+                <a href="hub.html" class="mobile-link py-2 border-b border-slate-800 flex justify-between items-center">
+                    <span>Hub</span>
+                    <span
+                        class="bg-emerald-500/20 text-emerald-400 text-xs px-2 py-0.5 rounded-full font-bold">Bootcamps</span>
+                </a>
+                <a href="index.html#services" class="mobile-link py-2 border-b border-slate-800">Services</a>
+                <a href="index.html#portfolio" class="mobile-link py-2 border-b border-slate-800">Work & Impact</a>
+                <a href="index.html#testimonials" class="mobile-link py-2 border-b border-slate-800">Alumni &
+                    Clients</a>
+                <a href="index.html#faq" class="mobile-link py-2 border-b border-slate-800">FAQ</a>
+                <div class="flex flex-col gap-3 pt-2">
+                    <a href="contact.html"
+                        class="mobile-link text-center py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-indigo-600 font-semibold text-white">
+                        Consultation & Enrollment
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative pt-36 pb-20 md:pt-48 md:pb-32 overflow-hidden">
+        <!-- Background Ambient Glows -->
+        <div
+            class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-cyan-500/10 rounded-full blur-[140px] pointer-events-none">
+        </div>
+        <div
+            class="absolute top-1/3 right-10 w-[400px] h-[400px] bg-indigo-500/10 rounded-full blur-[120px] pointer-events-none">
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+
+                <!-- Hero Left Column: Heading & CTAs -->
+                <div class="lg:col-span-7 text-center lg:text-left space-y-8 hero-reveal">
+
+                    <div
+                        class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-card border-cyan-500/30 text-cyan-300 text-xs sm:text-sm font-medium">
+                        <span class="flex h-2 w-2 rounded-full bg-cyan-400 animate-ping"></span>
+                        <span>Empowering Businesses & Next-Gen Tech Talent</span>
+                    </div>
+
+                    <h1 class="text-4xl sm:text-6xl xl:text-7xl font-extrabold tracking-tight leading-[1.1]">
+                        Architecting Digital <br class="hidden sm:inline" />
+                        <span class="text-gradient-cyan">Transformation.</span> <br />
+                        Nurturing <span class="text-gradient-emerald">Talent.</span>
+                    </h1>
+
+                    <p class="text-slate-400 text-lg sm:text-xl max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed">
+                        We build cloud-native platforms, AI systems, and modern digital ecosystems for growth-oriented
+                        enterprises — while training top 1% young tech graduates to join tomorrow's workforce.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+                        <a href="#services"
+                            class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-cyan-500 to-indigo-600 text-white font-semibold flex items-center justify-center gap-2 hover:shadow-lg hover:shadow-cyan-500/25 transition-all hover:-translate-y-0.5">
+                            <span>Explore Enterprise Solutions</span>
+                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </a>
+                        <a href="hub.html"
+                            class="w-full sm:w-auto px-8 py-4 rounded-xl glass-card text-slate-200 hover:text-white font-semibold flex items-center justify-center gap-2 hover:border-emerald-500/40 transition-all">
+                            <i data-lucide="graduation-cap" class="w-5 h-5 text-emerald-400"></i>
+                            <span>Explore Tech Hub</span>
+                        </a>
+                    </div>
+
+                    <!-- Quick Trust Badges -->
+                    <div
+                        class="pt-6 border-t border-slate-800/80 flex flex-wrap items-center justify-center lg:justify-start gap-8 text-slate-400 text-sm">
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="shield-check" class="text-cyan-400 w-5 h-5"></i>
+                            <span>ISO-Certified Solutions</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="award" class="text-emerald-400 w-5 h-5"></i>
+                            <span>98% Hub Placement Rate</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Right Column: Interactive Digital Prism / Graphic Card -->
+                <div class="lg:col-span-5 relative hero-reveal-delay">
+                    <div
+                        class="glass-panel p-6 sm:p-8 rounded-3xl relative overflow-hidden border border-slate-700/50 shadow-2xl animate-float">
+                        <!-- Top Floating Badge -->
+                        <div class="flex justify-between items-center mb-6">
+                            <div class="flex items-center gap-2">
+                                <span class="w-3 h-3 rounded-full bg-red-500 inline-block"></span>
+                                <span class="w-3 h-3 rounded-full bg-yellow-500 inline-block"></span>
+                                <span class="w-3 h-3 rounded-full bg-green-500 inline-block"></span>
+                            </div>
+                            <span class="text-xs text-slate-400 font-mono">LIVE_SYSTEM_STATUS: ONLINE</span>
+                        </div>
+
+                        <!-- Core Interactive Display Graphic -->
+                        <div class="space-y-4">
+                            <div class="glass-card p-4 rounded-xl flex items-center gap-4">
+                                <div class="p-3 bg-cyan-500/10 rounded-xl text-cyan-400">
+                                    <i data-lucide="cpu" class="w-6 h-6"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <div class="flex justify-between text-xs font-semibold mb-1">
+                                        <span class="text-slate-300">Enterprise AI Engine</span>
+                                        <span class="text-cyan-400">Deployed v3.4</span>
+                                    </div>
+                                    <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden">
+                                        <div class="bg-cyan-400 h-full w-[88%] rounded-full"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="glass-card p-4 rounded-xl flex items-center gap-4">
+                                <div class="p-3 bg-emerald-500/10 rounded-xl text-emerald-400">
+                                    <i data-lucide="users" class="w-6 h-6"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <div class="flex justify-between text-xs font-semibold mb-1">
+                                        <span class="text-slate-300">Cohort Talent Readiness</span>
+                                        <span class="text-emerald-400">Top 3% Skilled</span>
+                                    </div>
+                                    <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden">
+                                        <div class="bg-emerald-400 h-full w-[95%] rounded-full"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="glass-card p-4 rounded-xl flex items-center gap-4">
+                                <div class="p-3 bg-indigo-500/10 rounded-xl text-indigo-400">
+                                    <i data-lucide="cloud-lightning" class="w-6 h-6"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <div class="flex justify-between text-xs font-semibold mb-1">
+                                        <span class="text-slate-300">Cloud Migration Rate</span>
+                                        <span class="text-indigo-400">4x Speedup</span>
+                                    </div>
+                                    <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden">
+                                        <div class="bg-indigo-400 h-full w-[92%] rounded-full"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Mini Code Console Mockup -->
+                        <div
+                            class="mt-6 p-4 bg-slate-950/80 rounded-xl font-mono text-xs text-slate-400 space-y-1.5 border border-slate-800">
+                            <p class="text-cyan-400"><span class="text-purple-400">const</span> newSightTechnologies =
+                                <span class="text-yellow-400">new</span> DigitalTransformation();
+                            </p>
+                            <p class="text-slate-400">newSightTechnologies.transformCompany({ velocity: <span
+                                    class="text-emerald-400">'10x'</span> });</p>
+                            <p class="text-slate-400">newSightTechnologies.trainTalentPool({ cohort: <span
+                                    class="text-emerald-400">'2026.1'</span> });</p>
+                            <p class="text-emerald-400 flex items-center gap-2 pt-1">
+                                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                                System Optimized & Ready to Scale.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Live Animated Counter Stats Grid -->
+            <!--<div class="mt-20 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 reveal">
+                <div class="glass-card p-6 rounded-2xl text-center border-t-2 border-t-cyan-500 stagger-item">
+                    <div class="text-3xl sm:text-4xl font-extrabold text-white mb-1 tracking-tight">
+                        <span class="counter" data-target="180">0</span>+
+                    </div>
+                    <div class="text-xs sm:text-sm font-medium text-slate-400 uppercase tracking-wider">Enterprise Apps
+                        Built</div>
+                </div>
+
+                <div class="glass-card p-6 rounded-2xl text-center border-t-2 border-t-indigo-500 stagger-item">
+                    <div class="text-3xl sm:text-4xl font-extrabold text-white mb-1 tracking-tight">
+                        <span class="counter" data-target="95">0</span>+
+                    </div>
+                    <div class="text-xs sm:text-sm font-medium text-slate-400 uppercase tracking-wider">Startups
+                        Accelerated</div>
+                </div>
+
+                <div class="glass-card p-6 rounded-2xl text-center border-t-2 border-t-emerald-500 stagger-item">
+                    <div class="text-3xl sm:text-4xl font-extrabold text-white mb-1 tracking-tight">
+                        <span class="counter" data-target="3200">0</span>+
+                    </div>
+                    <div class="text-xs sm:text-sm font-medium text-slate-400 uppercase tracking-wider">Young Talents
+                        Trained</div>
+                </div>
+
+                <div class="glass-card p-6 rounded-2xl text-center border-t-2 border-t-purple-500 stagger-item">
+                    <div class="text-3xl sm:text-4xl font-extrabold text-white mb-1 tracking-tight">
+                        <span class="counter" data-target="98">0</span>%
+                    </div>
+                    <div class="text-xs sm:text-sm font-medium text-slate-400 uppercase tracking-wider">Career Hiring
+                        Rate</div>
+                </div>
+            </div>-->
+
+        </div>
+    </section>
+
+    <!-- Interactive Service Matrix Section -->
+    <section id="services" class="py-24 relative border-t border-slate-800/80 bg-slate-950/40 reveal">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <span class="text-cyan-400 font-semibold text-sm uppercase tracking-widest">Enterprise & Startup
+                    Solutions</span>
+                <h2 class="text-3xl sm:text-5xl font-bold text-white tracking-tight">
+                    End-to-End Digital Transformation Matrix
+                </h2>
+                <p class="text-slate-400 text-base sm:text-lg">
+                    We combine strategy, human-centered design, and high-performance engineering to modernize your
+                    enterprise from core to cloud.
+                </p>
+
+                <img src="/Assets/images/inm.jpg" alt="Abstract view of connected technology systems"
+                    class="w-full h-80 object-cover rounded-3xl border border-slate-800 opacity-120">
+
+                <!-- Filter Tabs -->
+                <div class="flex flex-wrap justify-center gap-2 pt-6" id="service-tabs">
+                    <button
+                        class="service-tab-btn active px-5 py-2.5 rounded-xl text-sm font-semibold transition-all bg-gradient-to-r from-cyan-500 to-indigo-600 text-white shadow-lg"
+                        data-filter="all">
+                        All Services
+                    </button>
+                    <button
+                        class="service-tab-btn px-5 py-2.5 rounded-xl text-sm font-semibold transition-all glass-card text-slate-300 hover:text-white"
+                        data-filter="cloud">
+                        Cloud & Automation
+                    </button>
+                    <button
+                        class="service-tab-btn px-5 py-2.5 rounded-xl text-sm font-semibold transition-all glass-card text-slate-300 hover:text-white"
+                        data-filter="ai">
+                        AI Integration
+                    </button>
+                    <button
+                        class="service-tab-btn px-5 py-2.5 rounded-xl text-sm font-semibold transition-all glass-card text-slate-300 hover:text-white"
+                        data-filter="product">
+                        Web & Mobile Products
+                    </button>
+                    <button
+                        class="service-tab-btn px-5 py-2.5 rounded-xl text-sm font-semibold transition-all glass-card text-slate-300 hover:text-white"
+                        data-filter="strategy">
+                        Growth Strategy
+                    </button>
+                </div>
+            </div>
+
+            <!-- Service Cards Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="services-grid">
+
+                <!-- Service 1 -->
+                <div class="service-card glass-card p-8 rounded-3xl relative group flex flex-col justify-between"
+                    data-category="cloud">
+                    <div>
+                        <div
+                            class="w-14 h-14 rounded-2xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 mb-6 group-hover:scale-110 transition-transform">
+                            <i data-lucide="cloud-cog" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">Cloud Modernization & DevOps</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                            Migrate monolithic legacy architectures into scalable AWS/Azure microservices with CI/CD
+                            pipelines, lowering infrastructure costs by up to 40%.
+                        </p>
+                    </div>
+                    <ul class="space-y-2 text-xs font-medium text-slate-300 mb-6 border-t border-slate-800 pt-4">
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-cyan-400"></i>
+                            Kubernetes & Serverless Orchestration</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-cyan-400"></i>
+                            Zero-Downtime Migration Architecture</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-cyan-400"></i>
+                            DevSecOps & Automated Compliance</li>
+                    </ul>
+                    <a href="contact.html"
+                        class="inline-flex items-center gap-2 text-sm font-bold text-cyan-400 hover:text-cyan-300 transition-colors">
+                        <span>Schedule Infrastructure Audit</span>
+                        <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                    </a>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="service-card glass-card p-8 rounded-3xl relative group flex flex-col justify-between"
+                    data-category="ai">
+                    <div>
+                        <div
+                            class="w-14 h-14 rounded-2xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400 mb-6 group-hover:scale-110 transition-transform">
+                            <i data-lucide="sparkles" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">Custom AI & LLM Integration</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                            Embed domain-specific AI agents, intelligent document search, and predictive analytics
+                            models directly into existing corporate workflows.
+                        </p>
+                    </div>
+                    <ul class="space-y-2 text-xs font-medium text-slate-300 mb-6 border-t border-slate-800 pt-4">
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-purple-400"></i>
+                            Fine-tuned Private LLMs (RAG)</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-purple-400"></i>
+                            Automated Customer Support Bots</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-purple-400"></i>
+                            Predictive Sales Analytics Pipelines</li>
+                    </ul>
+                    <a href="contact.html"
+                        class="inline-flex items-center gap-2 text-sm font-bold text-purple-400 hover:text-purple-300 transition-colors">
+                        <span>Explore AI Use Cases</span>
+                        <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                    </a>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="service-card glass-card p-8 rounded-3xl relative group flex flex-col justify-between"
+                    data-category="product">
+                    <div>
+                        <div
+                            class="w-14 h-14 rounded-2xl bg-indigo-500/10 border border-indigo-500/30 flex items-center justify-center text-indigo-400 mb-6 group-hover:scale-110 transition-transform">
+                            <i data-lucide="layout" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">Enterprise Web & Mobile Platforms</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                            Craft blazing-fast, secure, and intuitive React/Flutter applications engineered for maximum
+                            performance, accessibility, and high conversion.
+                        </p>
+                    </div>
+                    <ul class="space-y-2 text-xs font-medium text-slate-300 mb-6 border-t border-slate-800 pt-4">
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-indigo-400"></i>
+                            Cross-Platform iOS & Android Apps</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-indigo-400"></i>
+                            Progressive Web Applications (PWA)</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-indigo-400"></i>
+                            High-Throughput API Gateway Engineering</li>
+                    </ul>
+                    <a href="contact.html"
+                        class="inline-flex items-center gap-2 text-sm font-bold text-indigo-400 hover:text-indigo-300 transition-colors">
+                        <span>Request Product Blueprint</span>
+                        <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                    </a>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="service-card glass-card p-8 rounded-3xl relative group flex flex-col justify-between"
+                    data-category="product">
+                    <div>
+                        <div
+                            class="w-14 h-14 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 mb-6 group-hover:scale-110 transition-transform">
+                            <i data-lucide="figma" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">UX/UI & Design Systems</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                            Transform complex enterprise workflows into elegant, intuitive digital interfaces backed by
+                            behavioral research and design systems.
+                        </p>
+                    </div>
+                    <ul class="space-y-2 text-xs font-medium text-slate-300 mb-6 border-t border-slate-800 pt-4">
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i>
+                            Multi-Brand Scalable Design Systems</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i>
+                            Interactive Rapid Prototyping</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i>
+                            Usability & Accessibility Testing (WCAG)</li>
+                    </ul>
+                    <a href="contact.html"
+                        class="inline-flex items-center gap-2 text-sm font-bold text-emerald-400 hover:text-emerald-300 transition-colors">
+                        <span>Review Design Portfolios</span>
+                        <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                    </a>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="service-card glass-card p-8 rounded-3xl relative group flex flex-col justify-between"
+                    data-category="strategy">
+                    <div>
+                        <div
+                            class="w-14 h-14 rounded-2xl bg-yellow-500/10 border border-yellow-500/30 flex items-center justify-center text-yellow-400 mb-6 group-hover:scale-110 transition-transform">
+                            <i data-lucide="trending-up" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">Startup Acceleration & Growth</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                            Help early-stage and Series A startups refine product-market fit, scale technical
+                            infrastructure, and accelerate customer acquisition.
+                        </p>
+                    </div>
+                    <ul class="space-y-2 text-xs font-medium text-slate-300 mb-6 border-t border-slate-800 pt-4">
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-yellow-400"></i>
+                            Rapid MVP Development (4-6 Weeks)</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-yellow-400"></i>
+                            Fractional CTO & Tech Advisory</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-yellow-400"></i>
+                            Conversion Rate Optimization (CRO)</li>
+                    </ul>
+                    <a href="contact.html"
+                        class="inline-flex items-center gap-2 text-sm font-bold text-yellow-400 hover:text-yellow-300 transition-colors">
+                        <span>Apply for Accelerator</span>
+                        <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                    </a>
+                </div>
+
+                <!-- Service 6 -->
+                <div class="service-card glass-card p-8 rounded-3xl relative group flex flex-col justify-between"
+                    data-category="cloud">
+                    <div>
+                        <div
+                            class="w-14 h-14 rounded-2xl bg-rose-500/10 border border-rose-500/30 flex items-center justify-center text-rose-400 mb-6 group-hover:scale-110 transition-transform">
+                            <i data-lucide="bot" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">Robotic Process Automation (RPA)</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                            Eliminate manual repetitive tasks across finance, HR, and ops using intelligent software
+                            bots and automated document processing pipelines.
+                        </p>
+                    </div>
+                    <ul class="space-y-2 text-xs font-medium text-slate-300 mb-6 border-t border-slate-800 pt-4">
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-rose-400"></i>
+                            Automated Data Extraction & Invoicing</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-rose-400"></i>
+                            Legacy System Workflow Bridging</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-rose-400"></i>
+                            Real-time Process Telemetry</li>
+                    </ul>
+                    <a href="contact.html"
+                        class="inline-flex items-center gap-2 text-sm font-bold text-rose-400 hover:text-rose-300 transition-colors">
+                        <span>Calculate Automation Savings</span>
+                        <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Youth Talent Hub Section -->
+    <section id="hub" class="py-24 relative overflow-hidden border-t border-slate-800/80 reveal">
+        <!-- Glow accents -->
+        <div
+            class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-emerald-500/10 rounded-full blur-[140px] pointer-events-none">
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+            <div class="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-16 gap-6">
+                <div>
+                    <div
+                        class="inline-flex items-center gap-2 text-emerald-400 font-semibold text-sm uppercase tracking-widest mb-3">
+                        <i data-lucide="graduation-cap" class="w-4 h-4"></i>
+                        <span>NewSight Technologies Hub</span>
+                    </div>
+                    <h2 class="text-3xl sm:text-5xl font-bold text-white tracking-tight">
+                        Bridging the Youth Digital Skills Gap
+                    </h2>
+                    <p class="text-slate-400 text-base sm:text-lg max-w-2xl mt-4">
+                        We recruit top ambitious young talent, train them through intensive hands-on bootcamps with
+                        industry mentors, and place them directly into enterprise client projects.
+                    </p>
+                </div>
+
+                <!--<div class="glass-card px-6 py-4 rounded-2xl flex items-center gap-4 border-emerald-500/30">
+                    <div class="text-right">
+                        <span class="block text-2xl font-extrabold text-emerald-400">Next Cohort Starts</span>
+                        <span class="text-xs text-slate-400 font-medium">Limited to 25 Seats Per Track</span>
+                    </div>
+                    <div class="bg-emerald-500 text-slate-950 font-bold px-3.5 py-2 rounded-xl text-sm">
+                        OCT 15
+                    </div>
+                </div>-->
+            </div>
+
+            <!-- Hub Bootcamp Programs Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+
+                <!-- Track 1 -->
+                <div
+                    class="glass-card p-6 rounded-3xl relative border border-slate-800 flex flex-col justify-between hover:border-emerald-500/50">
+                    <div>
+                        <span
+                            class="bg-emerald-500/10 text-emerald-400 text-xs font-bold px-3 py-1 rounded-full border border-emerald-500/20 inline-block mb-4">
+                            16-WEEKS INTENSIVE
+                        </span>
+                        <h3 class="text-xl font-bold text-white mb-2">Full-Stack Software Engineering</h3>
+                        <p class="text-slate-400 text-xs leading-relaxed mb-6">
+                            Master React, Node.js, TypeScript, PostgreSQL, AWS Cloud deployment, and modern
+                            microservices architecture.
+                        </p>
+                        <div class="space-y-2 mb-6 text-xs text-slate-300">
+                            <div class="flex items-center gap-2"><i data-lucide="code"
+                                    class="w-4 h-4 text-emerald-400"></i> 12 Project Builds</div>
+                            <div class="flex items-center gap-2"><i data-lucide="user-check"
+                                    class="w-4 h-4 text-emerald-400"></i> 1-on-1 CTO Mentorship</div>
+                        </div>
+                    </div>
+                    <button
+                        class="w-full py-3 rounded-xl bg-slate-800 hover:bg-emerald-500 hover:text-slate-950 text-white font-semibold text-xs transition-all flex items-center justify-center gap-2">
+                        <a href="hub.html"><span>Lean more</span></a>
+                    </button>
+                </div>
+
+                <!-- Track 2 -->
+                <div
+                    class="glass-card p-6 rounded-3xl relative border border-slate-800 flex flex-col justify-between hover:border-cyan-500/50">
+                    <div>
+                        <span
+                            class="bg-cyan-500/10 text-cyan-400 text-xs font-bold px-3 py-1 rounded-full border border-cyan-500/20 inline-block mb-4">
+                            12-WEEKS INTENSIVE
+                        </span>
+                        <h3 class="text-xl font-bold text-white mb-2">UI/UX & Digital Product Design</h3>
+                        <p class="text-slate-400 text-xs leading-relaxed mb-6">
+                            Figma mastery, design systems, usability research, interactive prototyping, and developer
+                            handoff workflows.
+                        </p>
+                        <div class="space-y-2 mb-6 text-xs text-slate-300">
+                            <div class="flex items-center gap-2"><i data-lucide="figma"
+                                    class="w-4 h-4 text-cyan-400"></i> Portfolio Case Studies</div>
+                            <div class="flex items-center gap-2"><i data-lucide="briefcase"
+                                    class="w-4 h-4 text-cyan-400"></i> Real Client Redesigns</div>
+                        </div>
+                    </div>
+                    <button
+                        class="w-full py-3 rounded-xl bg-slate-800 hover:bg-cyan-500 hover:text-slate-950 text-white font-semibold text-xs transition-all flex items-center justify-center gap-2">
+                        <a href="hub.html"><span>Learn more</span></a>
+                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </button>
+                </div>
+
+                <!-- Track 3 -->
+                <div
+                    class="glass-card p-6 rounded-3xl relative border border-slate-800 flex flex-col justify-between hover:border-indigo-500/50">
+                    <div>
+                        <span
+                            class="bg-indigo-500/10 text-indigo-400 text-xs font-bold px-3 py-1 rounded-full border border-indigo-500/20 inline-block mb-4">
+                            14-WEEKS INTENSIVE
+                        </span>
+                        <h3 class="text-xl font-bold text-white mb-2">AI Systems & Data Engineering</h3>
+                        <p class="text-slate-400 text-xs leading-relaxed mb-6">
+                            Python, PyTorch, LLM Fine-Tuning, Data Pipelines, Vector Databases, and Applied AI
+                            Engineering.
+                        </p>
+                        <div class="space-y-2 mb-6 text-xs text-slate-300">
+                            <div class="flex items-center gap-2"><i data-lucide="database"
+                                    class="w-4 h-4 text-indigo-400"></i> Real Data Pipelines</div>
+                            <div class="flex items-center gap-2"><i data-lucide="cpu"
+                                    class="w-4 h-4 text-indigo-400"></i> Custom LLM Deployment</div>
+                        </div>
+                    </div>
+                    <!--<button onclick="openEnrollModal('AI & Data Engineering')"-->
+                    <button
+                        class="w-full py-3 rounded-xl bg-slate-800 hover:bg-indigo-500 hover:text-slate-950 text-white font-semibold text-xs transition-all flex items-center justify-center gap-2">
+
+                        <a href="hub.html"><span>Learn More</span></a>
+                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </button>
+                </div>
+
+                <!-- Track 4 -->
+                <div
+                    class="glass-card p-6 rounded-3xl relative border border-slate-800 flex flex-col justify-between hover:border-purple-500/50">
+                    <div>
+                        <span
+                            class="bg-purple-500/10 text-purple-400 text-xs font-bold px-3 py-1 rounded-full border border-purple-500/20 inline-block mb-4">
+                            10-WEEKS INTENSIVE
+                        </span>
+                        <h3 class="text-xl font-bold text-white mb-2">Growth & Digital Marketing</h3>
+                        <p class="text-slate-400 text-xs leading-relaxed mb-6">
+                            Performance marketing, SEO, automated funnel architecture, data analytics, and growth
+                            hacking strategy.
+                        </p>
+                        <div class="space-y-2 mb-6 text-xs text-slate-300">
+                            <div class="flex items-center gap-2"><i data-lucide="trending-up"
+                                    class="w-4 h-4 text-purple-400"></i> Live Ad Campaign Budget</div>
+                            <div class="flex items-center gap-2"><i data-lucide="bar-chart-2"
+                                    class="w-4 h-4 text-purple-400"></i> Analytics Certification</div>
+                        </div>
+                    </div>
+                    <button onclick="openEnrollModal('Growth & Digital Marketing')"
+                        class="w-full py-3 rounded-xl bg-slate-800 hover:bg-purple-500 hover:text-slate-950 text-white font-semibold text-xs transition-all flex items-center justify-center gap-2">
+                        <a href="hub.html"><span>Learn More</span></a>
+                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </button>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Interactive Portfolio / Success Stories Section -->
+    <section id="portfolio" class="py-24 relative bg-slate-950/60 border-t border-slate-800/80 reveal">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-6">
+                <div>
+                    <span class="text-cyan-400 font-semibold text-sm uppercase tracking-widest">Proven solutions
+                        Impact</span>
+                    <h2 class="text-3xl sm:text-5xl font-bold text-white tracking-tight mt-2">
+                        Digital Transformation Case Studies
+                    </h2>
+                </div>
+
+                <!-- Category Filters -->
+                <div class="flex flex-wrap gap-2" id="portfolio-filters">
+                    <button
+                        class="portfolio-filter-btn active px-4 py-2 rounded-xl text-xs font-semibold bg-cyan-500 text-white"
+                        data-category="all">All Projects</button>
+                    <button
+                        class="portfolio-filter-btn px-4 py-2 rounded-xl text-xs font-semibold glass-card text-slate-300"
+                        data-category="fintech">Fintech</button>
+                    <button
+                        class="portfolio-filter-btn px-4 py-2 rounded-xl text-xs font-semibold glass-card text-slate-300"
+                        data-category="health">HealthTech</button>
+                    <button
+                        class="portfolio-filter-btn px-4 py-2 rounded-xl text-xs font-semibold glass-card text-slate-300"
+                        data-category="logistics">Logistics & Cloud</button>
+                </div>
+            </div>
+
+            <!-- Case Studies Grid -->
+            <div class="grid md:grid-cols-3 gap-8" id="portfolio-grid">
+
+                <!-- Project 1 -->
+                <div class="portfolio-item glass-card rounded-3xl overflow-hidden group border border-slate-800"
+                    data-category="fintech">
+                    <div class="relative h-48 bg-slate-800 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80"
+                            alt="Fintech Dashboard"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent">
+                        </div>
+                        <span
+                            class="absolute top-4 left-4 bg-cyan-500/20 border border-cyan-500/40 text-cyan-300 text-[10px] font-bold px-2.5 py-1 rounded-full uppercase">
+                            Fintech Modernization
+                        </span>
+                    </div>
+                    <div class="p-6 space-y-4">
+                        <h3 class="text-xl font-bold text-white group-hover:text-cyan-400 transition-colors">PayPulse
+                            Mobile Core Platform</h3>
+                        <p class="text-slate-400 text-xs leading-relaxed">
+                            Re-engineered legacy banking core into microservices, enabling real-time micro-payments for
+                            2.5M users across East Africa.
+                        </p>
+
+                        <!-- Metric Before / After Box -->
+                        <div
+                            class="grid grid-cols-2 gap-2 bg-slate-900/80 p-3 rounded-xl border border-slate-800 text-center">
+                            <div>
+                                <span class="block text-[10px] text-slate-400 font-medium">Transaction Latency</span>
+                                <span class="text-sm font-extrabold text-cyan-400">4.2s ➔ 0.18s</span>
+                            </div>
+                            <div>
+                                <span class="block text-[10px] text-slate-400 font-medium">Monthly Active Growth</span>
+                                <span class="text-sm font-extrabold text-emerald-400">+310%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="portfolio-item glass-card rounded-3xl overflow-hidden group border border-slate-800"
+                    data-category="health">
+                    <div class="relative h-48 bg-slate-800 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80"
+                            alt="HealthTech Platform"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent">
+                        </div>
+                        <span
+                            class="absolute top-4 left-4 bg-emerald-500/20 border border-emerald-500/40 text-emerald-300 text-[10px] font-bold px-2.5 py-1 rounded-full uppercase">
+                            HealthTech & AI
+                        </span>
+                    </div>
+                    <div class="p-6 space-y-4">
+                        <h3 class="text-xl font-bold text-white group-hover:text-emerald-400 transition-colors">
+                            TeleHealth AI Diagnostic Hub</h3>
+                        <p class="text-slate-400 text-xs leading-relaxed">
+                            Deployed an AI-assisted triage system that connects rural clinic patients with specialized
+                            physicians in under 3 minutes.
+                        </p>
+
+                        <div
+                            class="grid grid-cols-2 gap-2 bg-slate-900/80 p-3 rounded-xl border border-slate-800 text-center">
+                            <div>
+                                <span class="block text-[10px] text-slate-400 font-medium">Patient Wait Time</span>
+                                <span class="text-sm font-extrabold text-emerald-400">-75% Reduction</span>
+                            </div>
+                            <div>
+                                <span class="block text-[10px] text-slate-400 font-medium">Diagnostic Accuracy</span>
+                                <span class="text-sm font-extrabold text-cyan-400">99.2%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="portfolio-item glass-card rounded-3xl overflow-hidden group border border-slate-800"
+                    data-category="logistics">
+                    <div class="relative h-48 bg-slate-800 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80"
+                            alt="Logistics Control System"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent">
+                        </div>
+                        <span
+                            class="absolute top-4 left-4 bg-indigo-500/20 border border-indigo-500/40 text-indigo-300 text-[10px] font-bold px-2.5 py-1 rounded-full uppercase">
+                            Supply Chain Automation
+                        </span>
+                    </div>
+                    <div class="p-6 space-y-4">
+                        <h3 class="text-xl font-bold text-white group-hover:text-indigo-400 transition-colors">
+                            FleetTrack Realtime Cloud Engine</h3>
+                        <p class="text-slate-400 text-xs leading-relaxed">
+                            Built IoT fleet telemetry and automated dispatch routing software for national freight
+                            supply chain operations.
+                        </p>
+
+                        <div
+                            class="grid grid-cols-2 gap-2 bg-slate-900/80 p-3 rounded-xl border border-slate-800 text-center">
+                            <div>
+                                <span class="block text-[10px] text-slate-400 font-medium">Fuel Waste Savings</span>
+                                <span class="text-sm font-extrabold text-indigo-400">$1.2M / Year</span>
+                            </div>
+                            <div>
+                                <span class="block text-[10px] text-slate-400 font-medium">On-Time Deliveries</span>
+                                <span class="text-sm font-extrabold text-emerald-400">98.9%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials & Alumni Network -->
+    <section id="testimonials" class="py-24 relative bg-slate-950/40 border-t border-slate-800/80 reveal">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+                <span class="text-emerald-400 font-semibold text-sm uppercase tracking-widest">Client & Graduate
+                    Proof</span>
+                <h2 class="text-3xl sm:text-5xl font-bold text-white tracking-tight">
+                    Trusted by Industry Leaders & Rising Stars
+                </h2>
+            </div>
+
+            <!-- Testimonials Grid -->
+            <div class="grid md:grid-cols-3 gap-8">
+
+                <!-- Testimonial 1: Corporate Client -->
+                <div class="glass-card p-8 rounded-3xl relative flex flex-col justify-between">
+                    <div>
+                        <div class="flex text-yellow-400 mb-4 gap-1 text-xs">
+                            <i data-lucide="star" class="fill-yellow-400 w-4 h-4"></i>
+                            <i data-lucide="star" class="fill-yellow-400 w-4 h-4"></i>
+                            <i data-lucide="star" class="fill-yellow-400 w-4 h-4"></i>
+                            <i data-lucide="star" class="fill-yellow-400 w-4 h-4"></i>
+                            <i data-lucide="star" class="fill-yellow-400 w-4 h-4"></i>
+                        </div>
+                        <p class="text-slate-300 text-sm italic leading-relaxed mb-6">
+                            "NewSight Technologies revamped our entire payment infrastructure in less than four months.
+                            Their
+                            engineering standards are world-class, and we hired two graduates from their Hub who are
+                            top performers!"
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-4 border-t border-slate-800 pt-4">
+                        <img src="/Assets/images/Profile 1.jpg" alt="Client CEO"
+                            class="w-12 h-12 rounded-full object-cover border border-cyan-400">
+                        <div>
+                            <h4 class="text-white font-bold text-sm">Elena Rostova</h4>
+                            <p class="text-slate-400 text-xs">CTO, Apex Fintech Global</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2: Hub Alumni -->
+                <div class="glass-card p-8 rounded-3xl relative flex flex-col justify-between border-emerald-500/20">
+                    <div>
+                        <div class="flex text-emerald-400 mb-4 gap-1 text-xs font-bold items-center">
+                            <i data-lucide="briefcase" class="w-4 h-4"></i>
+                            <span>ALUMNI HIGHLIGHT</span>
+                        </div>
+                        <p class="text-slate-300 text-sm italic leading-relaxed mb-6">
+                            "Going through the NewSight Technologies Software Bootcamp changed my trajectory completely.
+                            Within 2
+                            weeks
+                            of graduating, I was placed as a Full-Stack Engineer at a high-growth scaleup."
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-4 border-t border-slate-800 pt-4">
+                        <img src="/Assets/images/Profil2.jpg" alt="Alumni"
+                            class="w-12 h-12 rounded-full object-cover border border-emerald-400">
+                        <div>
+                            <h4 class="text-white font-bold text-sm">David K. Mensah</h4>
+                            <p class="text-slate-400 text-xs">Full-Stack Engineer @ PayScale</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3: Startup Founder -->
+                <div class="glass-card p-8 rounded-3xl relative flex flex-col justify-between">
+                    <div>
+                        <div class="flex text-yellow-400 mb-4 gap-1 text-xs">
+                            <i data-lucide="star" class="fill-yellow-400 w-4 h-4"></i>
+                            <i data-lucide="star" class="fill-yellow-400 w-4 h-4"></i>
+                            <i data-lucide="star" class="fill-yellow-400 w-4 h-4"></i>
+                            <i data-lucide="star" class="fill-yellow-400 w-4 h-4"></i>
+                            <i data-lucide="star" class="fill-yellow-400 w-4 h-4"></i>
+                        </div>
+                        <p class="text-slate-300 text-sm italic leading-relaxed mb-6">
+                            "As a startup founder, speed is everything. NewSight Technologies helped us prototype, test,
+                            and launch
+                            our
+                            MVP to market before our competitor even finished their PRD."
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-4 border-t border-slate-800 pt-4">
+                        <img src="/Assets/images/1.avif" alt="Startup Founder"
+                            class="w-12 h-12 rounded-full object-cover border border-purple-400">
+                        <div>
+                            <h4 class="text-white font-bold text-sm">Sarah Jenkins</h4>
+                            <p class="text-slate-400 text-xs">Founder & CEO, HealthHub</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Hiring Partner Logo Cloud -->
+
+            <!--<div class="mt-16 text-center">
+                <span class="text-xs uppercase tracking-widest text-slate-500 font-bold block mb-8">Our Alumni Are Hired
+                    By Top Companies</span>
+                <div class="logo-marquee-viewport opacity-60 grayscale hover:grayscale-0 transition-all" tabindex="0"
+                    aria-label="Companies that hire NewSight Technologies Hub alumni">
+                    <div class="logo-marquee-track" aria-hidden="true">
+                        <div class="flex items-center gap-10 pr-10 shrink-0">
+                            <span class="text-xl font-black tracking-tighter text-slate-300"><i data-lucide="globe"
+                                    class="inline w-5 h-5 mr-1"></i> MICROTECH</span>
+                            <span class="text-xl font-black tracking-tighter text-slate-300"><i data-lucide="zap"
+                                    class="inline w-5 h-5 mr-1"></i> VOLT_AI</span>
+                            <span class="text-xl font-black tracking-tighter text-slate-300"><i data-lucide="layers"
+                                    class="inline w-5 h-5 mr-1"></i> NEXA_CLOUD</span>
+                            <span class="text-xl font-black tracking-tighter text-slate-300"><i data-lucide="shield"
+                                    class="inline w-5 h-5 mr-1"></i> CYBER_GUARD</span>
+                        </div>
+                        <div class="flex items-center gap-10 pr-10 shrink-0">
+                            <span class="text-xl font-black tracking-tighter text-slate-300"><i data-lucide="globe"
+                                    class="inline w-5 h-5 mr-1"></i> MICROTECH</span>
+                            <span class="text-xl font-black tracking-tighter text-slate-300"><i data-lucide="zap"
+                                    class="inline w-5 h-5 mr-1"></i> VOLT_AI</span>
+                            <span class="text-xl font-black tracking-tighter text-slate-300"><i data-lucide="layers"
+                                    class="inline w-5 h-5 mr-1"></i> NEXA_CLOUD</span>
+                            <span class="text-xl font-black tracking-tighter text-slate-300"><i data-lucide="shield"
+                                    class="inline w-5 h-5 mr-1"></i> CYBER_GUARD</span>
+                        </div>
+                    </div>
+                </div>
+            </div>-->
+
+        </div>
+    </section>
+
+    <!-- Frequently Asked Questions -->
+    <section id="faq" class="py-24 relative border-t border-slate-800/80 bg-slate-950/40 reveal">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-[0.8fr_1.2fr] gap-12 lg:gap-20 items-start">
+                <div class="lg:sticky lg:top-32">
+                    <span class="text-cyan-400 font-semibold text-sm uppercase tracking-widest">Clear
+                        answers</span>
+                    <h2 class="mt-3 text-3xl sm:text-5xl font-bold text-white tracking-tight">Everything in one
+                        place.
+                    </h2>
+                    <p class="mt-5 text-slate-400 leading-relaxed">From modernizing an enterprise platform to
+                        choosing
+                        your Hub track, here is what people ask before taking the next step.</p>
+                    <div class="mt-8 flex flex-wrap gap-2">
+                        <span
+                            class="inline-flex items-center gap-2 px-3 py-2 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-xs font-semibold text-cyan-300"><i
+                                data-lucide="building-2" class="w-4 h-4"></i>Enterprise</span>
+                        <span
+                            class="inline-flex items-center gap-2 px-3 py-2 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-xs font-semibold text-emerald-300"><i
+                                data-lucide="compass" class="w-4 h-4"></i>Hub</span>
+                    </div>
+                    <a href="contact.html"
+                        class="mt-8 inline-flex items-center gap-2 text-sm font-bold text-white hover:text-cyan-300 transition-colors">Still
+                        have a question? Contact us <i data-lucide="arrow-up-right"
+                            class="w-4 h-4 text-cyan-400"></i></a>
+                    <img src="/Assets/images/mark digital.jpg" alt="Team discussion in a modern technology workspace"
+                        class="w-full h-70 object-cover rounded-2xl mt-8 border border-slate-800 opacity-80">
+                </div>
+
+                <div class="glass-panel rounded-3xl border border-slate-700/60 overflow-hidden">
+                    <details class="group border-b border-slate-800/80" open>
+                        <summary class="flex cursor-pointer list-none items-start justify-between gap-6 p-6 sm:p-7">
+                            <span><span
+                                    class="block text-[10px] font-bold uppercase tracking-widest text-cyan-400 mb-2">Enterprise</span><span
+                                    class="text-base sm:text-lg font-bold text-white">What kinds of projects
+                                    does
+                                    NewSight Technologies deliver?</span></span><i data-lucide="plus"
+                                class="w-5 h-5 shrink-0 text-cyan-400 transition-transform group-open:rotate-45"></i>
+                        </summary>
+                        <p class="px-6 sm:px-7 pb-7 text-sm leading-relaxed text-slate-400">We deliver cloud
+                            modernization, AI and LLM integrations, enterprise web and mobile platforms, UX and
+                            design
+                            systems, startup acceleration, and robotic process automation.</p>
+                    </details>
+                    <details class="group border-b border-slate-800/80">
+                        <summary class="flex cursor-pointer list-none items-start justify-between gap-6 p-6 sm:p-7">
+                            <span><span
+                                    class="block text-[10px] font-bold uppercase tracking-widest text-cyan-400 mb-2">Enterprise</span><span
+                                    class="text-base sm:text-lg fonts-bold text-white">How does the discovery
+                                    process
+                                    work?</span></span><i data-lucide="plus"
+                                class="w-5 h-5 shrink-0 text-cyan-400 transition-transform group-open:rotate-45"></i>
+                        </summary>
+                        <p class="px-6 sm:px-7 pb-7 text-sm leading-relaxed text-slate-400">Start with a free
+                            30-minute
+                            consultation. We review your goals, systems, constraints, and success metrics, then
+                            recommend a practical roadmap and delivery approach.</p>
+                    </details>
+                    <details class="group border-b border-slate-800/80">
+                        <summary class="flex cursor-pointer list-none items-start justify-between gap-6 p-6 sm:p-7">
+                            <span><span
+                                    class="block text-[10px] font-bold uppercase tracking-widest text-cyan-400 mb-2">Enterprise</span><span
+                                    class="text-base sm:text-lg font-bold text-white">Can you work with our
+                                    existing
+                                    engineering team?</span></span><i data-lucide="plus"
+                                class="w-5 h-5 shrink-0 text-cyan-400 transition-transform group-open:rotate-45"></i>
+                        </summary>
+                        <p class="px-6 sm:px-7 pb-7 text-sm leading-relaxed text-slate-400">Yes. We can lead
+                            delivery,
+                            provide specialist capacity, or embed with your team across architecture, product
+                            design,
+                            engineering, cloud, and AI workstreams.</p>
+                    </details>
+                    <details class="group border-b border-slate-800/80">
+                        <summary class="flex cursor-pointer list-none items-start justify-between gap-6 p-6 sm:p-7">
+                            <span><span
+                                    class="block text-[10px] font-bold uppercase tracking-widest text-emerald-400 mb-2">Hub</span><span
+                                    class="text-base sm:text-lg font-bold text-white">Which Hub tracks are
+                                    available?</span></span><i data-lucide="plus"
+                                class="w-5 h-5 shrink-0 text-emerald-400 transition-transform group-open:rotate-45"></i>
+                        </summary>
+                        <p class="px-6 sm:px-7 pb-7 text-sm leading-relaxed text-slate-400">Choose Full-Stack
+                            Software
+                            Engineering, UI/UX and Digital Product Design, AI Systems and Data Engineering, or
+                            Growth
+                            and Digital Marketing.</p>
+                    </details>
+                    <details class="group border-b border-slate-800/80">
+                        <summary class="flex cursor-pointer list-none items-start justify-between gap-6 p-6 sm:p-7">
+                            <span><span
+                                    class="block text-[10px] font-bold uppercase tracking-widest text-emerald-400 mb-2">Hub</span><span
+                                    class="text-base sm:text-lg font-bold text-white">What does the learning
+                                    experience
+                                    include?</span></span><i data-lucide="plus"
+                                class="w-5 h-5 shrink-0 text-emerald-400 transition-transform group-open:rotate-45"></i>
+                        </summary>
+                        <p class="px-6 sm:px-7 pb-7 text-sm leading-relaxed text-slate-400">Tracks combine
+                            guided
+                            sessions, project builds, mentor feedback, portfolio reviews, peer collaboration,
+                            office
+                            hours, and career readiness support.</p>
+                    </details>
+                    <details class="group">
+                        <summary class="flex cursor-pointer list-none items-start justify-between gap-6 p-6 sm:p-7">
+                            <span><span
+                                    class="block text-[10px] font-bold uppercase tracking-widest text-emerald-400 mb-2">Hub</span><span
+                                    class="text-base sm:text-lg font-bold text-white">When does the next cohort
+                                    begin
+                                    and how do I apply?</span></span><i data-lucide="plus"
+                                class="w-5 h-5 shrink-0 text-emerald-400 transition-transform group-open:rotate-45"></i>
+                        </summary>
+                        <p class="px-6 sm:px-7 pb-7 text-sm leading-relaxed text-slate-400">The next cohort
+                            starts
+                            October 15 and is limited to 25 seats per track. Visit the Hub page to explore
+                            tracks, then
+                            contact the admissions team to begin your application.</p>
+                    </details>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="border-t border-slate-800 bg-slate-950 pt-16 pb-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 pb-14 border-b border-slate-800">
+                <div class="sm:col-span-2 lg:col-span-1">
+                    <a href="#" class="inline-flex items-center gap-3 mb-5">
+                        <div
+                            class="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-500 to-indigo-600 flex items-center justify-center font-bold text-white text-xl shadow-lg">
+                            <img src="/Assets/icons/L@ c.svg" alt="Description of the image" size='24'
+                                class="w-6 h-6" />
+                        </div>
+                        <div class="flex flex-col"><span
+                                class="font-extrabold text-xl tracking-wider text-white">NewSight
+                                <span class="text-cyan-400"></span></span><span
+                                class="text-[9px] uppercase tracking-widest text-slate-400 font-semibold -mt-1">Technologies</span>
+                        </div>
+                    </a>
+                    <p class="text-sm leading-relaxed text-slate-400 max-w-xs">Digital transformation, applied
+                        AI,
+                        and practical technology training for ambitious organizations and future-ready talent.
+                    </p>
+                    <div class="flex items-center gap-4 mt-6 text-slate-400">
+                        <a href="#" aria-label="NewSight Technologies on Twitter"
+                            class="hover:text-cyan-400 transition-colors"><i data-lucide="twitter"
+                                class="w-5 h-5"></i></a>
+                        <a href="#" aria-label="NewSight Technologies on LinkedIn"
+                            class="hover:text-cyan-400 transition-colors"><i data-lucide="linkedin"
+                                class="w-5 h-5"></i></a>
+                        <a href="#" aria-label="NewSight Technologies on GitHub"
+                            class="hover:text-cyan-400 transition-colors"><i data-lucide="github"
+                                class="w-5 h-5"></i></a>
+                        <a href="#" aria-label="NewSight Technologies on YouTube"
+                            class="hover:text-cyan-400 transition-colors"><i data-lucide="youtube"
+                                class="w-5 h-5"></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-xs font-bold uppercase tracking-widest text-white mb-5">Explore</h3>
+                    <div class="space-y-3 text-sm text-slate-400">
+                        <a href="#services" class="block hover:text-cyan-400 transition-colors">Services
+                            Matrix</a>
+                        <a href="#portfolio" class="block hover:text-cyan-400 transition-colors">Work &
+                            Impact</a>
+                        <a href="#testimonials" class="block hover:text-cyan-400 transition-colors">Alumni &
+                            Clients</a>
+                        <a href="#faq" class="block hover:text-cyan-400 transition-colors">Frequently Asked
+                            Questions</a>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-xs font-bold uppercase tracking-widest text-white mb-5">Hub</h3>
+                    <div class="space-y-3 text-sm text-slate-400">
+                        <a href="hub.html#tracks" class="block hover:text-emerald-400 transition-colors">Bootcamp
+                            Tracks</a>
+                        <a href="contact.html" class="block hover:text-emerald-400 transition-colors">Apply for
+                            Enrollment</a>
+                        <a href="contact.html" class="block hover:text-emerald-400 transition-colors">Training
+                            Application</a>
+                        <p class="pt-2 text-xs leading-relaxed text-slate-500">Next cohort: October 15<br>25
+                            seats per
+                            track</p>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-xs font-bold uppercase tracking-widest text-white mb-5">Contact</h3>
+                    <div class="space-y-4 text-sm text-slate-400">
+                        <p><span class="block text-xs text-slate-500 mb-1">Enterprise</span><a
+                                href="mailto:solutions@newsight.io"
+                                class="hover:text-cyan-400 transition-colors">infos@newsight.com</a></p>
+                        <!--<p><span class="block text-xs text-slate-500 mb-1">Hub Admissions</span><a
+                                href="mailto:admissions@newsight.io"
+                                class="hover:text-cyan-400 transition-colors">admissions@newsight.io</a></p>-->
+                        <p><span class="block text-xs text-slate-500 mb-1">Hotline</span>+243 975 041 411</p>
+                        <a href="contact.html"
+                            class="inline-flex items-center gap-2 text-cyan-400 font-semibold hover:text-cyan-300 transition-colors">Start
+                            a conversation <i data-lucide="arrow-up-right" class="w-4 h-4"></i></a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="pt-12 pb-10 text-center overflow-hidden">
+                <div
+                    class="text-[clamp(4rem,16vw,13rem)] leading-none font-black tracking-[-0.06em] text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-white to-indigo-500 select-none">
+                    NewSight Technologies<span class="text-cyan-400">.</span></div>
+            </div>
+
+            <div
+                class="flex flex-col sm:flex-row justify-between items-center gap-3 border-t border-slate-800 pt-5 text-xs text-slate-500">
+                <span>© 2026 NewSight Technologies Digital Transformation & Youth Hub. All rights
+                    reserved.</span>
+                <span>Built for progress. Designed for people.</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Enrollment Quick Modal -->
+    <div id="enroll-modal"
+        class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md">
+        <div class="glass-panel p-8 rounded-3xl border border-cyan-500/30 max-w-md w-full relative">
+            <button onclick="closeEnrollModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+            <h3 class="text-2xl font-bold text-white mb-2" id="modal-track-title">Enroll in Bootcamp</h3>
+            <p class="text-xs text-slate-400 mb-6">Start your application process for the upcoming cohort.</p>
+
+            <form onsubmit="handleModalSubmit(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1">Your
+                        Full
+                        Name</label>
+                    <input type="text" required placeholder="Jane Doe"
+                        class="w-full bg-slate-900 border border-slate-800 rounded-xl p-3 text-sm text-white focus:outline-none focus:border-cyan-400">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1">Email
+                        Address</label>
+                    <input type="email" required placeholder="jane@gmail.com"
+                        class="w-full bg-slate-900 border border-slate-800 rounded-xl p-3 text-sm text-white focus:outline-none focus:border-cyan-400">
+                </div>
+                <button type="submit"
+                    class="w-full py-3.5 rounded-xl bg-emerald-500 text-slate-950 font-bold text-sm uppercase tracking-wider hover:bg-emerald-400 transition-all">
+                    Submit Priority Application
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Mobile Navigation Toggle Logic
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Reveal content as it enters the viewport.
+        const revealItems = document.querySelectorAll('.reveal');
+
+        if ('IntersectionObserver' in window) {
+            const revealObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.12 });
+
+            revealItems.forEach(item => revealObserver.observe(item));
+        } else {
+            revealItems.forEach(item => item.classList.add('is-visible'));
+        }
+
+        // Animated Numerical Counter Logic
+        const counters = document.querySelectorAll('.counter');
+        let animated = false;
+
+        function runCounters() {
+            counters.forEach(counter => {
+                const target = +counter.getAttribute('data-target');
+                let count = 0;
+                const speed = target / 50;
+
+                const updateCount = () => {
+                    count += speed;
+                    if (count < target) {
+                        counter.innerText = Math.ceil(count);
+                        setTimeout(updateCount, 30);
+                    } else {
+                        counter.innerText = target;
+                    }
+                };
+                updateCount();
+            });
+        }
+
+        window.addEventListener('scroll', () => {
+            if (!animated && window.scrollY > 200) {
+                runCounters();
+                animated = true;
+            }
+        });
+
+        // Service Matrix Filter Tabs
+        const serviceTabs = document.querySelectorAll('.service-tab-btn');
+        const serviceCards = document.querySelectorAll('.service-card');
+
+        serviceTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                serviceTabs.forEach(t => {
+                    t.classList.remove('active', 'bg-gradient-to-r', 'from-cyan-500', 'to-indigo-600', 'text-white');
+                    t.classList.add('glass-card', 'text-slate-300');
+                });
+
+                tab.classList.add('active', 'bg-gradient-to-r', 'from-cyan-500', 'to-indigo-600', 'text-white');
+                tab.classList.remove('glass-card', 'text-slate-300');
+
+                const filter = tab.getAttribute('data-filter');
+
+                serviceCards.forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Portfolio Filter Tabs
+        const portfolioFilters = document.querySelectorAll('.portfolio-filter-btn');
+        const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+        portfolioFilters.forEach(btn => {
+            btn.addEventListener('click', () => {
+                portfolioFilters.forEach(b => {
+                    b.classList.remove('bg-cyan-500', 'text-white');
+                    b.classList.add('glass-card', 'text-slate-300');
+                });
+
+                btn.classList.add('bg-cyan-500', 'text-white');
+                btn.classList.remove('glass-card', 'text-slate-300');
+
+                const cat = btn.getAttribute('data-category');
+
+                portfolioItems.forEach(item => {
+                    if (cat === 'all' || item.getAttribute('data-category') === cat) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Modal Logic
+        function openEnrollModal(trackName) {
+            document.getElementById('modal-track-title').innerText = `Apply for ${trackName}`;
+            document.getElementById('enroll-modal').classList.remove('hidden');
+        }
+
+        function closeEnrollModal() {
+            document.getElementById('enroll-modal').classList.add('hidden');
+        }
+
+        function handleModalSubmit(e) {
+            e.preventDefault();
+            alert('Application submitted successfully! Our admissions coordinator will reach out shortly.');
+            closeEnrollModal();
+        }
+    </script>
+</body>
+
+</html>

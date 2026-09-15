@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | NewSight Technologies</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <script>tailwind.config = { theme: { extend: { fontFamily: { sans: ['Plus Jakarta Sans', 'sans-serif'] } } } };</script>
+    <style>
+        body {
+            background: #0B0F19;
+            color: #F3F4F6;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow-x: hidden
+        }
+
+        .glass-panel {
+            background: rgba(21, 28, 44, .7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, .08)
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, .03);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, .08);
+            transition: all .3s ease
+        }
+
+        .glass-card:hover {
+            border-color: rgba(6, 182, 212, .4);
+            transform: translateY(-4px)
+        }
+    </style>
+</head>
+
+<body class="antialiased selection:bg-cyan-500 selection:text-white">
+    <header class="fixed top-0 left-0 right-0 w-full z-50">
+        <div class="w-full">
+            <div
+                class="glass-panel rounded-none border-x-0 border-t-0 bg-slate-950/85 px-6 py-3.5 flex items-center justify-between">
+                <a href="index.html" class="flex items-center gap-3 group">
+                    <div
+                        class="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-500 to-indigo-600 flex items-center justify-center font-bold text-white text-xl shadow-lg">
+                        <img src="/Assets/icons/L@ c.svg" alt="Description of the image" size='24' class="w-6 h-6" />
+                    </div>
+                    <div class="flex flex-col"><span class="font-extrabold text-xl tracking-wider text-white">NewSight
+                            <span class="text-cyan-400"></span></span><span
+                            class="text-[9px] uppercase tracking-widest text-slate-400 font-semibold -mt-1">Technologies</span>
+                    </div>
+                </a>
+                <nav class="hidden lg:flex items-center gap-7 text-sm font-medium text-slate-300"><a href="index.html"
+                        class="hover:text-cyan-400">Home</a><a href="about.html" class="hover:text-cyan-400">About
+                        Us</a><a href="hub.html" class="hover:text-cyan-400">Hub</a><a href="index.html#services"
+                        class="hover:text-cyan-400">Services</a><a href="index.html#portfolio"
+                        class="hover:text-cyan-400">Work & Impact</a><a href="index.html#testimonials"
+                        class="hover:text-cyan-400">Alumni & Clients</a><a href="index.html#faq"
+                        class="hover:text-cyan-400">FAQ</a>
+                </nav><a href="contact.html"
+                    class="hidden sm:inline-flex px-5 py-2.5 text-sm font-semibold text-white bg-gradient-to-r from-cyan-500 to-indigo-600 rounded-xl">Get
+                    Started</a><button id="mobile-menu-btn" class="lg:hidden text-slate-300 p-2"><i data-lucide="menu"
+                        class="w-6 h-6"></i></button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden lg:hidden max-w-7xl mx-auto px-4 mt-2">
+            <div class="glass-panel rounded-2xl p-6 flex flex-col gap-4 text-slate-200"><a href="index.html"
+                    class="mobile-link py-2 border-b border-slate-800">Home</a><a href="about.html"
+                    class="mobile-link py-2 border-b border-slate-800">About Us</a><a href="hub.html"
+                    class="mobile-link py-2 border-b border-slate-800">Hub</a><a href="index.html#services"
+                    class="mobile-link py-2 border-b border-slate-800">Services</a><a href="index.html#portfolio"
+                    class="mobile-link py-2 border-b border-slate-800">Work & Impact</a><a
+                    href="index.html#testimonials" class="mobile-link py-2 border-b border-slate-800">Alumni &
+                    Clients</a><a href="index.html#faq" class="mobile-link py-2 border-b border-slate-800">FAQ</a></div>
+        </div>
+    </header>
+    <main class="pt-36">
+        <section class="py-20 md:py-28">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-12 gap-10 items-center">
+                <div class="lg:col-span-7"><span
+                        class="text-cyan-400 font-semibold text-sm uppercase tracking-widest">Let's Connect</span>
+                    <h1 class="mt-4 max-w-4xl text-4xl sm:text-6xl font-extrabold tracking-tight">Bring us the
+                        challenge.
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-indigo-500">We'll
+                            bring
+                            a way forward.</span>
+                    </h1>
+                    <p class="mt-6 max-w-2xl text-lg text-slate-400 leading-relaxed">Tell us what you are building,
+                        modernizing, or trying to solve. Our team will respond with the right next conversation.</p>
+                </div>
+                <div class="lg:col-span-5">
+                    <div class="glass-panel p-3 rounded-3xl shadow-2xl"><img
+                            src="/Assets/images/pexels-darlene-alderson-7971165.jpg"
+                            alt="Modern NewSight Technologies workspace"
+                            class="w-full aspect-[4/3] object-cover rounded-2xl opacity-90"></div>
+                </div>
+            </div>
+        </section>
+        <section class="pb-24">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-12 gap-12">
+                <div class="lg:col-span-5 space-y-5">
+                    <div class="glass-card p-5 rounded-2xl flex gap-4">
+                        <div class="p-3 bg-cyan-500/10 text-cyan-400 rounded-xl"><i data-lucide="map-pin"
+                                class="w-6 h-6"></i></div>
+                        <div>
+                            <h3 class="font-bold text-white">Innovation Center HQ</h3>
+                            <p class="text-sm text-slate-400 mt-1">Silicon Tower, 14th Floor, Tech District</p>
+                        </div>
+                    </div>
+                    <div class="glass-card p-5 rounded-2xl flex gap-4">
+                        <div class="p-3 bg-emerald-500/10 text-emerald-400 rounded-xl"><i data-lucide="mail"
+                                class="w-6 h-6"></i></div>
+                        <div>
+                            <h3 class="font-bold text-white">Email the team</h3><a href="mailto:solutions@newsight.io"
+                                class="block text-sm text-slate-400 mt-1 hover:text-cyan-400">solutions@newsight.io</a><a
+                                href="mailto:admissions@newsight.io"
+                                class="block text-sm text-slate-400 hover:text-emerald-400">admissions@newsight.io</a>
+                        </div>
+                    </div>
+                    <div class="glass-card p-5 rounded-2xl flex gap-4">
+                        <div class="p-3 bg-indigo-500/10 text-indigo-400 rounded-xl"><i data-lucide="phone"
+                                class="w-6 h-6"></i></div>
+                        <div>
+                            <h3 class="font-bold text-white">Phone & WhatsApp</h3>
+                            <p class="text-sm text-slate-400 mt-1">+243 975041411</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:col-span-7">
+                    <div class="glass-panel p-8 sm:p-10 rounded-3xl border border-slate-700/60">
+                        <div class="mb-8 border-b border-slate-800 pb-5"><span
+                                class="text-cyan-400 font-semibold text-xs uppercase tracking-widest">Contact NewSight
+                                Technologies</span>
+                            <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight mt-2">Enterprise
+                                Services Inquiry</h2>
+                        </div>
+                        <form id="contact-form" class="space-y-4">
+                            <div class="grid sm:grid-cols-2 gap-4">
+                                <div><label
+                                        class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">Full
+                                        Name</label><input required type="text" placeholder="Alex Morgan"
+                                        class="w-full bg-slate-900 border border-slate-800 rounded-xl p-3.5 text-sm text-white focus:outline-none focus:border-cyan-400">
+                                </div>
+                                <div><label
+                                        class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">Email
+                                        Address</label><input required type="email" placeholder="alex@company.com"
+                                        class="w-full bg-slate-900 border border-slate-800 rounded-xl p-3.5 text-sm text-white focus:outline-none focus:border-cyan-400">
+                                </div>
+                            </div>
+                            <div class="grid sm:grid-cols-2 gap-4">
+                                <div><label
+                                        class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">Phone
+                                        / WhatsApp</label><input required type="tel" placeholder="+243 975041411"
+                                        class="w-full bg-slate-900 border border-slate-800 rounded-xl p-3.5 text-sm text-white focus:outline-none focus:border-cyan-400">
+                                </div>
+                                <div><label
+                                        class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">Company
+                                        / Organization</label><input type="text" placeholder="Acme Global Inc."
+                                        class="w-full bg-slate-900 border border-slate-800 rounded-xl p-3.5 text-sm text-white focus:outline-none focus:border-cyan-400">
+                                </div>
+                            </div>
+                            <div><label
+                                    class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">Preferred
+                                    Date for Meeting</label><input required type="date"
+                                    class="w-full bg-slate-900 border border-slate-800 rounded-xl p-3.5 text-sm text-slate-300 focus:outline-none focus:border-cyan-400">
+                            </div>
+                            <div><label
+                                    class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">Project
+                                    / Application Scope</label><textarea required rows="5"
+                                    placeholder="Describe your digital transformation goals or learning objectives..."
+                                    class="w-full bg-slate-900 border border-slate-800 rounded-xl p-3.5 text-sm text-white focus:outline-none focus:border-cyan-400"></textarea>
+                            </div><button type="submit"
+                                class="w-full py-4 rounded-xl bg-gradient-to-r from-cyan-500 to-indigo-600 text-white font-extrabold text-sm uppercase tracking-wider">Confirm
+                                & Book Consultation</button>
+                        </form>
+                        <div id="form-success"
+                            class="hidden mt-6 p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-center text-emerald-400 text-sm font-bold">
+                            <i data-lucide="check-circle" class="inline w-5 h-5 mr-1"></i>Inquiry Received! Our team
+                            will contact you within 24 hours.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="border-t border-slate-800 bg-slate-950 pt-16 pb-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 pb-14 border-b border-slate-800">
+                <div class="sm:col-span-2 lg:col-span-1"><a href="index.html"
+                        class="inline-flex items-center gap-3 mb-5">
+                        <div
+                            class="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-500 to-indigo-600 flex items-center justify-center font-bold text-white text-xl shadow-lg">
+                            <img src="/Assets/icons/L@ c.svg" alt="Description of the image" size='24'
+                                class="w-6 h-6" />
+                        </div>
+                        <div class="flex flex-col"><span
+                                class="font-extrabold text-xl tracking-wider text-white">NewSight
+                                <span class="text-cyan-400"></span></span><span
+                                class="text-[9px] uppercase tracking-widest text-slate-400 font-semibold -mt-1">Technologies</span>
+                        </div>
+
+                    </a>
+                    <p class="text-sm leading-relaxed text-slate-400 max-w-xs">Digital transformation, applied AI, and
+                        practical technology training for ambitious organizations and future-ready talent.</p>
+                </div>
+                <div>
+                    <h3 class="text-xs font-bold uppercase tracking-widest text-white mb-5">Explore</h3>
+                    <div class="space-y-3 text-sm text-slate-400"><a href="index.html"
+                            class="block hover:text-cyan-400">Home</a><a href="about.html"
+                            class="block hover:text-cyan-400">About Us</a><a href="hub.html"
+                            class="block hover:text-cyan-400">Hub</a><a href="contact.html"
+                            class="block hover:text-cyan-400">Contact</a></div>
+                </div>
+                <div>
+                    <h3 class="text-xs font-bold uppercase tracking-widest text-white mb-5">Hub</h3>
+                    <div class="space-y-3 text-sm text-slate-400"><a href="hub.html#tracks"
+                            class="block hover:text-emerald-400">Bootcamp Tracks</a><a href="contact.html"
+                            class="block hover:text-emerald-400">Apply for Enrollment</a>
+                        <p class="pt-2 text-xs text-slate-500">Next cohort: October 15<br>25 seats per track</p>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-xs font-bold uppercase tracking-widest text-white mb-5">Contact</h3>
+                    <div class="space-y-3 text-sm text-slate-400"><a href="mailto:infos@newsight.com"
+                            class="block hover:text-cyan-400">infos@newsight.com</a><!--<a
+                            href="mailto:admissions@newsight.io"
+                            class="block hover:text-cyan-400">admissions@newsight.io</a>-->
+                        <p>+243 975 041 411</p>
+                    </div>
+                </div>
+            </div>
+            <div class="pt-12 pb-10 text-center overflow-hidden">
+                <div
+                    class="text-[clamp(4rem,16vw,13rem)] leading-none font-black tracking-[-0.06em] text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-white to-indigo-500 select-none">
+                    NewSight Technologies<span class="text-cyan-400">.</span></div>
+            </div>
+            <div
+                class="flex flex-col sm:flex-row justify-between items-center gap-3 border-t border-slate-800 pt-5 text-xs text-slate-500">
+                <span>© 2026 NewSight Technologies. All rights reserved.</span><span>Built for progress. Designed for
+                    people.</span>
+            </div>
+        </div>
+    </footer>
+    <script>lucide.createIcons(); const menuButton = document.getElementById('mobile-menu-btn'); const mobileMenu = document.getElementById('mobile-menu'); menuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden')); document.querySelectorAll('.mobile-link').forEach(link => link.addEventListener('click', () => mobileMenu.classList.add('hidden'))); document.getElementById('contact-form').addEventListener('submit', event => { event.preventDefault(); document.getElementById('form-success').classList.remove('hidden'); event.target.reset(); });</script>
+</body>
+
+</html>
