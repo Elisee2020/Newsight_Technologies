@@ -7,6 +7,7 @@
     <title>Contact | NewSight Technologies</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="icon" type="image/png" sizes="32x32" href="/Assets/icons/icon.svg">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
     <script>tailwind.config = { theme: { extend: { fontFamily: { sans: ['Plus Jakarta Sans', 'sans-serif'] } } } };</script>
@@ -41,33 +42,31 @@
 
 <body class="antialiased selection:bg-cyan-500 selection:text-white">
     <header class="fixed top-0 left-0 right-0 w-full z-50">
-        <div class="w-full">
-            <div
-                class="glass-panel rounded-none border-x-0 border-t-0 bg-slate-950/85 px-6 py-3.5 flex items-center justify-between">
+        <div class="glass-panel rounded-none border-x-0 border-t-0 bg-slate-950/85">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex items-center justify-between">
                 <a href="index.html" class="flex items-center gap-3 group">
-                    <div
-                        class="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-500 to-indigo-600 flex items-center justify-center font-bold text-white text-xl shadow-lg">
-                        <img src="/Assets/icons/L@ c.svg" alt="Description of the image" size='24' class="w-6 h-6" />
+                    <div>
+                        <img src="/Assets/icons/Ns@.svg" alt="Description of the image" size='24' class="w-40 h-15" />
                     </div>
-                    <div class="flex flex-col"><span class="font-extrabold text-xl tracking-wider text-white">NewSight
-                            <span class="text-cyan-400"></span></span><span
-                            class="text-[9px] uppercase tracking-widest text-slate-400 font-semibold -mt-1">Technologies</span>
-                    </div>
+
                 </a>
-                <nav class="hidden lg:flex items-center gap-7 text-sm font-medium text-slate-300"><a href="index.html"
-                        class="hover:text-cyan-400">Home</a><a href="about.html" class="hover:text-cyan-400">About
+                <nav class="hidden lg:flex items-center gap-4 xl:gap-7 text-sm font-medium text-slate-300"><a
+                        href="index.html" class="hover:text-cyan-400">Home</a><a href="about.html"
+                        class="hover:text-cyan-400">About
                         Us</a><a href="hub.html" class="hover:text-cyan-400">Hub</a><a href="index.html#services"
                         class="hover:text-cyan-400">Services</a><a href="index.html#portfolio"
                         class="hover:text-cyan-400">Work & Impact</a><a href="index.html#testimonials"
                         class="hover:text-cyan-400">Alumni & Clients</a><a href="index.html#faq"
                         class="hover:text-cyan-400">FAQ</a>
-                </nav><a href="contact.html"
+                </nav><button type="button" data-language-toggle
+                    class="hidden sm:inline-flex h-10 w-10 items-center justify-center rounded-xl border border-slate-700 text-xs font-bold text-slate-200 transition-colors hover:border-cyan-400 hover:text-cyan-400"
+                    aria-label="Passer au français" title="Passer au français">FR</button><a href="contact.html"
                     class="hidden sm:inline-flex px-5 py-2.5 text-sm font-semibold text-white bg-gradient-to-r from-cyan-500 to-indigo-600 rounded-xl">Get
                     Started</a><button id="mobile-menu-btn" class="lg:hidden text-slate-300 p-2"><i data-lucide="menu"
                         class="w-6 h-6"></i></button>
             </div>
         </div>
-        <div id="mobile-menu" class="hidden lg:hidden max-w-7xl mx-auto px-4 mt-2">
+        <div id="mobile-menu" class="hidden lg:hidden max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-2">
             <div class="glass-panel rounded-2xl p-6 flex flex-col gap-4 text-slate-200"><a href="index.html"
                     class="mobile-link py-2 border-b border-slate-800">Home</a><a href="about.html"
                     class="mobile-link py-2 border-b border-slate-800">About Us</a><a href="hub.html"
@@ -75,7 +74,10 @@
                     class="mobile-link py-2 border-b border-slate-800">Services</a><a href="index.html#portfolio"
                     class="mobile-link py-2 border-b border-slate-800">Work & Impact</a><a
                     href="index.html#testimonials" class="mobile-link py-2 border-b border-slate-800">Alumni &
-                    Clients</a><a href="index.html#faq" class="mobile-link py-2 border-b border-slate-800">FAQ</a></div>
+                    Clients</a><a href="index.html#faq"
+                    class="mobile-link py-2 border-b border-slate-800">FAQ</a><button type="button" data-language-toggle
+                    class="mobile-link py-3 rounded-xl border border-slate-700 font-semibold text-slate-200 hover:border-cyan-400 hover:text-cyan-400"
+                    aria-label="Passer au français">FR</button></div>
         </div>
     </header>
     <main class="pt-36">
@@ -103,22 +105,20 @@
         <section class="pb-24">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-12 gap-12">
                 <div class="lg:col-span-5 space-y-5">
-                    <div class="glass-card p-5 rounded-2xl flex gap-4">
+                    <!--<div class="glass-card p-5 rounded-2xl flex gap-4">
                         <div class="p-3 bg-cyan-500/10 text-cyan-400 rounded-xl"><i data-lucide="map-pin"
                                 class="w-6 h-6"></i></div>
                         <div>
                             <h3 class="font-bold text-white">Innovation Center HQ</h3>
-                            <p class="text-sm text-slate-400 mt-1">Silicon Tower, 14th Floor, Tech District</p>
+                            <p class="text-sm text-slate-400 mt-1">Kigali, Rwanda</p>
                         </div>
-                    </div>
+                    </div>-->
                     <div class="glass-card p-5 rounded-2xl flex gap-4">
                         <div class="p-3 bg-emerald-500/10 text-emerald-400 rounded-xl"><i data-lucide="mail"
                                 class="w-6 h-6"></i></div>
                         <div>
-                            <h3 class="font-bold text-white">Email the team</h3><a href="mailto:solutions@newsight.io"
-                                class="block text-sm text-slate-400 mt-1 hover:text-cyan-400">solutions@newsight.io</a><a
-                                href="mailto:admissions@newsight.io"
-                                class="block text-sm text-slate-400 hover:text-emerald-400">admissions@newsight.io</a>
+                            <h3 class="font-bold text-white">Email the team</h3><a href="mailto:infos@newsightt.com"
+                                class="block text-sm text-slate-400 mt-1 hover:text-cyan-400">infos@newsightt.com</a>
                         </div>
                     </div>
                     <div class="glass-card p-5 rounded-2xl flex gap-4">
@@ -133,7 +133,8 @@
                 <div class="lg:col-span-7">
                     <div class="glass-panel p-8 sm:p-10 rounded-3xl border border-slate-700/60">
                         <div class="mb-8 border-b border-slate-800 pb-5"><span
-                                class="text-cyan-400 font-semibold text-xs uppercase tracking-widest">Contact NewSight
+                                class="text-cyan-400 font-semibold text-xs uppercase tracking-widest">Contact
+                                NewSight
                                 Technologies</span>
                             <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight mt-2">Enterprise
                                 Services Inquiry</h2>
@@ -192,15 +193,9 @@
             <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 pb-14 border-b border-slate-800">
                 <div class="sm:col-span-2 lg:col-span-1"><a href="index.html"
                         class="inline-flex items-center gap-3 mb-5">
-                        <div
-                            class="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-500 to-indigo-600 flex items-center justify-center font-bold text-white text-xl shadow-lg">
-                            <img src="/Assets/icons/L@ c.svg" alt="Description of the image" size='24'
-                                class="w-6 h-6" />
-                        </div>
-                        <div class="flex flex-col"><span
-                                class="font-extrabold text-xl tracking-wider text-white">NewSight
-                                <span class="text-cyan-400"></span></span><span
-                                class="text-[9px] uppercase tracking-widest text-slate-400 font-semibold -mt-1">Technologies</span>
+                        <div>
+                            <img src="/Assets/icons/Ns@.svg" alt="Description of the image" size='24'
+                                class="w-30 h-10" />
                         </div>
 
                     </a>
@@ -225,8 +220,8 @@
                 </div>
                 <div>
                     <h3 class="text-xs font-bold uppercase tracking-widest text-white mb-5">Contact</h3>
-                    <div class="space-y-3 text-sm text-slate-400"><a href="mailto:infos@newsight.com"
-                            class="block hover:text-cyan-400">infos@newsight.com</a><!--<a
+                    <div class="space-y-3 text-sm text-slate-400"><a href="mailto:infos@newsightt.com"
+                            class="block hover:text-cyan-400">infos@newsightt.com</a><!--<a
                             href="mailto:admissions@newsight.io"
                             class="block hover:text-cyan-400">admissions@newsight.io</a>-->
                         <p>+243 975 041 411</p>
@@ -245,7 +240,8 @@
             </div>
         </div>
     </footer>
-    <script>lucide.createIcons(); const menuButton = document.getElementById('mobile-menu-btn'); const mobileMenu = document.getElementById('mobile-menu'); menuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden')); document.querySelectorAll('.mobile-link').forEach(link => link.addEventListener('click', () => mobileMenu.classList.add('hidden'))); document.getElementById('contact-form').addEventListener('submit', event => { event.preventDefault(); document.getElementById('form-success').classList.remove('hidden'); event.target.reset(); });</script>
+    <script src="Assets/js/language-switcher.js"></script>
+    <script>lucide.createIcons(); const menuButton = document.getElementById('mobile-menu-btn'); const mobileMenu = document.getElementById('mobile-menu'); menuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden')); document.querySelectorAll('a.mobile-link').forEach(link => link.addEventListener('click', () => mobileMenu.classList.add('hidden')); document.getElementById('contact-form').addEventListener('submit', event => { event.preventDefault(); document.getElementById('form-success').classList.remove('hidden'); event.target.reset(); });</script>
 </body>
 
 </html>
